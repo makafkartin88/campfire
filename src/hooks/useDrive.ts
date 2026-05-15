@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
-import { initGapi, initTokenClient, silentRefresh } from '../lib/drive/auth'
+import { initGapi, initTokenClient, silentRefresh, onGapiReady } from '../lib/drive/auth'
 import { loadPublicSongs, loadOwnerSongs, bootstrapOwnerFolder } from '../lib/drive/sync'
 import { useAuthStore } from '../store/auth.store'
 
 export function useDrive() {
-  const { isSignedIn, isTokenValid, clearToken } = useAuthStore()
+  const { isSignedIn, isTokenValid, clearToken, setGapiReady, setAuthError } = useAuthStore()
   const initialized = useRef(false)
 
   useEffect(() => {
@@ -17,15 +17,20 @@ export function useDrive() {
     // Initialize Google auth in background (for owner edit mode)
     initGapi()
       .then(() => {
-        initTokenClient(async () => {
-          // Called after successful owner sign-in — use authenticated API
-          try {
-            await bootstrapOwnerFolder()
-            await loadOwnerSongs()
-          } catch (e) {
-            console.error('Owner sync failed:', e)
-          }
-        })
+        onGapiReady(() => setGapiReady(true))
+        initTokenClient(
+          async () => {
+            // Called after successful owner sign-in — use authenticated API
+            try {
+              await bootstrapOwnerFolder()
+              await loadOwnerSongs()
+            } catch (e) {
+              console.error('Owner sync failed:', e)
+              setAuthError(e instanceof Error ? e.message : 'Chyba při načítání')
+            }
+          },
+          (err) => setAuthError(`Přihlášení selhalo: ${err}`),
+        )
         // Attempt silent token refresh if user was previously signed in
         if (isSignedIn) silentRefresh()
       })

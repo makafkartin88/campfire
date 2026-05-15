@@ -17,6 +17,9 @@ export function Sidebar() {
   const { searchQuery, setSearchQuery } = useUiStore()
   const isSignedIn = useAuthStore((s) => s.isSignedIn)
   const isTokenValid = useAuthStore((s) => s.isTokenValid)
+  const gapiReady = useAuthStore((s) => s.gapiReady)
+  const authPending = useAuthStore((s) => s.authPending)
+  const authError = useAuthStore((s) => s.authError)
   const isOwner = isSignedIn && isTokenValid()
   const navigate = useNavigate()
   const [newFolderName, setNewFolderName] = useState('')
@@ -237,14 +240,24 @@ export function Sidebar() {
               Odhlásit se
             </button>
           ) : (
-            <button
-              onClick={signIn}
-              className="w-full flex items-center gap-2 px-4 py-3 text-stone-600 hover:text-fire-400 text-xs transition-colors"
-              title="Přihlásit se pro přidávání a editaci písní"
-            >
-              <LogIn size={13} />
-              Přihlásit se (editace)
-            </button>
+            <div className="space-y-1">
+              {authError && (
+                <p className="px-4 py-1 text-xs text-red-400 break-words">{authError}</p>
+              )}
+              <button
+                onClick={signIn}
+                disabled={!gapiReady || authPending}
+                className="w-full flex items-center gap-2 px-4 py-3 text-stone-600 hover:text-fire-400 text-xs transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                title="Přihlásit se pro přidávání a editaci písní"
+              >
+                {authPending ? (
+                  <Loader2 size={13} className="animate-spin" />
+                ) : (
+                  <LogIn size={13} />
+                )}
+                {!gapiReady ? 'Inicializuji…' : authPending ? 'Přihlašuji…' : 'Přihlásit se (editace)'}
+              </button>
+            </div>
           )}
         </div>
       )}

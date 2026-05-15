@@ -13,13 +13,19 @@ export interface DriveFile {
 }
 
 const DRIVE_DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
-const SCOPE = 'https://www.googleapis.com/auth/drive.file'
+const SCOPE = 'https://www.googleapis.com/auth/drive'
 
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID as string
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY as string
 
 let tokenClient: { requestAccessToken: (opts: { prompt: string }) => void } | null = null
 let gapiReady = false
+let _onGapiReady: (() => void) | null = null
+
+export function onGapiReady(cb: () => void): void {
+  if (gapiReady) { cb(); return }
+  _onGapiReady = cb
+}
 
 export function isConfigured(): boolean {
   return !!(CLIENT_ID && API_KEY && CLIENT_ID !== 'undefined' && API_KEY !== 'undefined')
@@ -48,6 +54,7 @@ export async function initGapi(): Promise<void> {
       try {
         await gapi.client.init({ apiKey: API_KEY, discoveryDocs: [DRIVE_DISCOVERY_DOC] })
         gapiReady = true
+        _onGapiReady?.()
         resolve()
       } catch (e) {
         reject(e)
@@ -56,7 +63,10 @@ export async function initGapi(): Promise<void> {
   })
 }
 
-export function initTokenClient(onToken: (token: string) => void): void {
+export function initTokenClient(
+  onToken: (token: string) => void,
+  onError?: (err: string) => void,
+): void {
   if (!isConfigured() || typeof google === 'undefined') return
   tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: CLIENT_ID,
@@ -64,6 +74,7 @@ export function initTokenClient(onToken: (token: string) => void): void {
     callback: (response: { access_token: string; expires_in: string | number; error?: string }) => {
       if (response.error) {
         console.error('OAuth error:', response.error)
+        onError?.(response.error)
         return
       }
       const expiresAt = Date.now() + (Number(response.expires_in) - 60) * 1000
@@ -79,6 +90,8 @@ export function signIn(): void {
     return
   }
   if (!tokenClient) return
+  useAuthStore.getState().setAuthPending(true)
+  useAuthStore.getState().setAuthError(null)
   tokenClient.requestAccessToken({ prompt: 'consent' })
 }
 
