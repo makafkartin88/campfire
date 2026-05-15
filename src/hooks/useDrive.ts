@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { initGapi, initTokenClient, silentRefresh } from '../lib/drive/auth'
-import { loadPublicSongs, bootstrapOwnerFolder } from '../lib/drive/sync'
+import { loadPublicSongs, loadOwnerSongs, bootstrapOwnerFolder } from '../lib/drive/sync'
 import { useAuthStore } from '../store/auth.store'
 
 export function useDrive() {
@@ -18,10 +18,10 @@ export function useDrive() {
     initGapi()
       .then(() => {
         initTokenClient(async () => {
-          // Called after successful owner sign-in
+          // Called after successful owner sign-in — use authenticated API
           try {
             await bootstrapOwnerFolder()
-            await loadPublicSongs() // Refresh to get latest including newly added
+            await loadOwnerSongs()
           } catch (e) {
             console.error('Owner sync failed:', e)
           }
@@ -36,7 +36,7 @@ export function useDrive() {
     if (!isTokenValid()) return
     try {
       await bootstrapOwnerFolder()
-      await loadPublicSongs()
+      await loadOwnerSongs()
     } catch (e) {
       const msg = e instanceof Error ? e.message : ''
       if (msg.includes('401') || msg.includes('403')) clearToken()

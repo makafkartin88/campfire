@@ -94,6 +94,80 @@ export async function loadPublicSongs(): Promise<void> {
   }
 }
 
+// ─── Authenticated load (owner only — sees all files, not just public) ───────
+
+export async function loadOwnerSongs(): Promise<void> {
+  if (!PUBLIC_FOLDER_ID) return
+  useSongsStore.getState().setLoading(true)
+
+  try {
+    const { files: folderFiles } = await listFiles({
+      q: `'${PUBLIC_FOLDER_ID}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
+    })
+    const folders: DriveFolder[] = folderFiles.map((f) => ({
+      id: f.id,
+      name: f.name,
+      parentId: PUBLIC_FOLDER_ID,
+    }))
+    useFoldersStore.getState().setFolders(folders)
+    useFoldersStore.getState().setRootFolderId(PUBLIC_FOLDER_ID)
+
+    const allFolderIds = [PUBLIC_FOLDER_ID, ...folders.map((f) => f.id)]
+    const songs: Song[] = []
+
+    for (const folderId of allFolderIds) {
+      const folderName = folders.find((f) => f.id === folderId)?.name ?? ''
+      const { files } = await listFiles({
+        q: `'${folderId}' in parents and trashed=false and (mimeType='application/json' or mimeType='application/pdf')`,
+      })
+
+      for (const file of files) {
+        if (file.mimeType === 'application/pdf') {
+          const title = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
+          songs.push({
+            id: file.id,
+            title,
+            artist: '',
+            folder: folderName,
+            key: '',
+            content: '',
+            pdfDriveId: file.id,
+            driveFileId: file.id,
+            driveParentFolderId: folderId,
+            createdAt: file.modifiedTime ?? '',
+            updatedAt: file.modifiedTime ?? '',
+          })
+        } else {
+          try {
+            const data = await getFileContent(file.id) as Partial<Song>
+            if (data.title) {
+              songs.push({
+                id: data.id ?? file.id,
+                title: data.title,
+                artist: data.artist ?? '',
+                folder: data.folder ?? folderName,
+                key: data.key ?? '',
+                content: data.content ?? '',
+                pdfDriveId: data.pdfDriveId ?? null,
+                driveFileId: file.id,
+                driveParentFolderId: folderId,
+                createdAt: data.createdAt ?? '',
+                updatedAt: data.updatedAt ?? '',
+              })
+            }
+          } catch {
+            // skip malformed files
+          }
+        }
+      }
+    }
+
+    useSongsStore.getState().setSongs(songs)
+  } finally {
+    useSongsStore.getState().setLoading(false)
+  }
+}
+
 // ─── Authenticated sync (owner only) ────────────────────────────────────────
 
 export async function bootstrapOwnerFolder(): Promise<string> {
