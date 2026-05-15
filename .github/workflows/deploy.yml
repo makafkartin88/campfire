@@ -32,11 +32,6 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          VITE_PUBLIC_FOLDER_ID: 10v3FidrkqL9ZkK4aE8eM5aBWyL8FZc8l
-          VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
-          VITE_GOOGLE_API_KEY: ${{ secrets.VITE_GOOGLE_API_KEY }}
-          VITE_INDEX_FILE_ID: ${{ secrets.VITE_INDEX_FILE_ID }}
 
       - uses: actions/configure-pages@v4
 

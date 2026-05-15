@@ -2,14 +2,14 @@ export interface Song {
   id: string
   title: string
   artist: string
-  folder: string
+  folderId: string | null
   key: string
   content: string
-  pdfDriveId: string | null
-  driveFileId: string | null
-  driveParentFolderId: string | null
-  createdAt: string
-  updatedAt: string
+}
+
+export interface Folder {
+  id: string
+  name: string
 }
 
 export interface ParsedLine {
@@ -25,10 +25,4 @@ export interface ChordPosition {
   barres: Array<{ fret: number; fromString: number; toString: number }>
   baseFret: number
   capo?: boolean
-}
-
-export interface DriveFolder {
-  id: string
-  name: string
-  parentId: string | null
 }

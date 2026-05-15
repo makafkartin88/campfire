@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Music, FileText } from 'lucide-react'
+import { Music } from 'lucide-react'
 import type { Song } from '../../types'
 import { useSongsStore } from '../../store/songs.store'
 import { useFoldersStore } from '../../store/folders.store'
@@ -7,25 +7,16 @@ import { useUiStore } from '../../store/ui.store'
 
 export function SongList() {
   const songs = useSongsStore((s) => s.songs)
-  const isLoading = useSongsStore((s) => s.isLoading)
   const activeFolderId = useFoldersStore((s) => s.activeFolderId)
   const searchQuery = useUiStore((s) => s.searchQuery)
 
   const filtered = songs.filter((s) => {
-    const matchFolder = !activeFolderId || s.driveParentFolderId === activeFolderId
+    const matchFolder = !activeFolderId || s.folderId === activeFolderId
     const q = searchQuery.toLowerCase()
     const matchSearch =
       !q || s.title.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q)
     return matchFolder && matchSearch
   })
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-32 text-stone-500 text-sm">
-        Načítám písničky…
-      </div>
-    )
-  }
 
   if (filtered.length === 0) {
     return (
@@ -52,7 +43,7 @@ function SongRow({ song }: { song: Song }) {
       className="flex items-center gap-3 px-4 py-3 hover:bg-stone-800/60 transition-colors group"
     >
       <div className="text-stone-600 group-hover:text-fire-500 transition-colors">
-        {song.pdfDriveId ? <FileText size={16} /> : <Music size={16} />}
+        <Music size={16} />
       </div>
       <div className="flex-1 min-w-0">
         <div className="text-stone-200 text-sm font-medium truncate">{song.title}</div>

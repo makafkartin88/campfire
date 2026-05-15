@@ -1,51 +1,18 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { FolderOpen, Folder, Plus, Music, LogOut, LogIn, Search, Copy, ExternalLink, Loader2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { FolderOpen, Folder, Music, Search } from 'lucide-react'
 import { useFoldersStore } from '../../store/folders.store'
 import { useSongsStore } from '../../store/songs.store'
 import { useUiStore } from '../../store/ui.store'
-import { useAuthStore } from '../../store/auth.store'
-import { signIn, signOut, isConfigured } from '../../lib/drive/auth'
-import { createSongFolder } from '../../lib/drive/sync'
 import { SongList } from '../songs/SongList'
 
 export function Sidebar() {
   const { folders, activeFolderId, setActiveFolderId } = useFoldersStore()
   const songs = useSongsStore((s) => s.songs)
-  const isLoading = useSongsStore((s) => s.isLoading)
-  const loadingStatus = useSongsStore((s) => s.loadingStatus)
   const { searchQuery, setSearchQuery } = useUiStore()
-  const isSignedIn = useAuthStore((s) => s.isSignedIn)
-  const isTokenValid = useAuthStore((s) => s.isTokenValid)
-  const gapiReady = useAuthStore((s) => s.gapiReady)
-  const authPending = useAuthStore((s) => s.authPending)
-  const authError = useAuthStore((s) => s.authError)
-  const isOwner = isSignedIn && isTokenValid()
-  const navigate = useNavigate()
-  const [newFolderName, setNewFolderName] = useState('')
-  const [bannerDismissed, setBannerDismissed] = useState(false)
-
-  const indexEnvId = import.meta.env.VITE_INDEX_FILE_ID as string | undefined
-  const indexLocalId = localStorage.getItem('campfire-index-file-id')
-  const showBootstrapBanner = isOwner && !indexEnvId && !!indexLocalId && !bannerDismissed
-  const [creatingFolder, setCreatingFolder] = useState(false)
-  const [showNewFolder, setShowNewFolder] = useState(false)
 
   const allCount = songs.length
   const folderCount = (folderId: string) =>
-    songs.filter((s) => s.driveParentFolderId === folderId).length
-
-  async function handleCreateFolder() {
-    if (!newFolderName.trim()) return
-    setCreatingFolder(true)
-    try {
-      await createSongFolder(newFolderName.trim())
-      setNewFolderName('')
-      setShowNewFolder(false)
-    } finally {
-      setCreatingFolder(false)
-    }
-  }
+    songs.filter((s) => s.folderId === folderId).length
 
   return (
     <div className="flex flex-col h-full bg-stone-900 border-r border-stone-800">
@@ -71,22 +38,8 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Add song (owner only) */}
-      {isOwner && (
-        <div className="px-3 py-2 border-b border-stone-800">
-          <button
-            onClick={() => navigate('/edit')}
-            className="w-full flex items-center gap-2 px-3 py-2 bg-fire-700 hover:bg-fire-600 text-white text-sm rounded-md transition-colors font-medium"
-          >
-            <Plus size={15} />
-            Přidat píseň
-          </button>
-        </div>
-      )}
-
       {/* Folder list */}
       <div className="flex-1 overflow-y-auto">
-        {/* All songs */}
         <button
           onClick={() => setActiveFolderId(null)}
           className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
@@ -123,144 +76,10 @@ export function Sidebar() {
           )
         })}
 
-        {/* New folder (owner only) */}
-        {isOwner && (
-          showNewFolder ? (
-            <div className="px-3 py-2 flex gap-1">
-              <input
-                autoFocus
-                type="text"
-                placeholder="Název složky"
-                value={newFolderName}
-                onChange={(e) => setNewFolderName(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleCreateFolder()
-                  if (e.key === 'Escape') setShowNewFolder(false)
-                }}
-                className="flex-1 bg-stone-800 text-stone-200 text-xs px-2 py-1.5 rounded border border-stone-700 focus:outline-none focus:border-fire-600"
-              />
-              <button
-                onClick={handleCreateFolder}
-                disabled={creatingFolder}
-                className="px-2 py-1 bg-fire-700 text-white text-xs rounded hover:bg-fire-600 disabled:opacity-50"
-              >
-                OK
-              </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => setShowNewFolder(true)}
-              className="w-full flex items-center gap-2 px-4 py-2 text-xs text-stone-600 hover:text-stone-400 transition-colors"
-            >
-              <Plus size={12} />
-              Nová složka
-            </button>
-          )
-        )}
-
-        {/* Song list */}
         <div className="mt-2 border-t border-stone-800">
           <SongList />
         </div>
       </div>
-
-      {/* Bootstrap banner — shown once after first login until VITE_INDEX_FILE_ID is set */}
-      {showBootstrapBanner && (
-        <div className="mx-3 mb-2 p-3 bg-amber-900/40 border border-amber-700/50 rounded-md text-xs text-amber-300 space-y-2">
-          <p className="font-medium">Zpěvník inicializován!</p>
-          <p className="text-amber-400/80">Přidej do GitHub Secrets a redeploy:</p>
-          <div className="flex items-center gap-1">
-            <code className="flex-1 bg-stone-900 px-2 py-1 rounded text-xs text-amber-200 break-all">
-              VITE_INDEX_FILE_ID={indexLocalId}
-            </code>
-            <button
-              onClick={() => navigator.clipboard.writeText(indexLocalId!)}
-              className="p-1 hover:text-amber-100 shrink-0"
-              title="Kopírovat"
-            >
-              <Copy size={12} />
-            </button>
-          </div>
-          <button
-            onClick={() => setBannerDismissed(true)}
-            className="text-amber-600 hover:text-amber-400 text-xs"
-          >
-            Zavřít
-          </button>
-        </div>
-      )}
-
-      {/* Drive links + loading status */}
-      {isOwner && (
-        <div className="px-3 py-2 border-t border-stone-800 space-y-1">
-          <a
-            href={`https://drive.google.com/drive/folders/${import.meta.env.VITE_PUBLIC_FOLDER_ID}`}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1.5 text-xs text-stone-600 hover:text-stone-400 transition-colors"
-          >
-            <ExternalLink size={11} />
-            Složka na Drive
-          </a>
-          {(() => {
-            const localId = localStorage.getItem('campfire-index-file-id')
-            const id = (import.meta.env.VITE_INDEX_FILE_ID as string) || localId
-            return id ? (
-              <a
-                href={`https://drive.google.com/file/d/${id}/view`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-1.5 text-xs text-stone-600 hover:text-stone-400 transition-colors"
-              >
-                <ExternalLink size={11} />
-                _index.json
-              </a>
-            ) : null
-          })()}
-        </div>
-      )}
-
-      {/* Loading status bar */}
-      {(isLoading || loadingStatus) && (
-        <div className="px-3 py-2 border-t border-stone-800 flex items-center gap-2 text-xs text-stone-500">
-          <Loader2 size={12} className="animate-spin shrink-0" />
-          <span>{loadingStatus || 'Načítám…'}</span>
-        </div>
-      )}
-
-      {/* Auth footer — only shown when Google credentials are configured */}
-      {isConfigured() && (
-        <div className="border-t border-stone-800">
-          {isOwner ? (
-            <button
-              onClick={signOut}
-              className="w-full flex items-center gap-2 px-4 py-3 text-stone-600 hover:text-stone-400 text-xs transition-colors"
-            >
-              <LogOut size={13} />
-              Odhlásit se
-            </button>
-          ) : (
-            <div className="space-y-1">
-              {authError && (
-                <p className="px-4 py-1 text-xs text-red-400 break-words">{authError}</p>
-              )}
-              <button
-                onClick={signIn}
-                disabled={!gapiReady || authPending}
-                className="w-full flex items-center gap-2 px-4 py-3 text-stone-600 hover:text-fire-400 text-xs transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                title="Přihlásit se pro přidávání a editaci písní"
-              >
-                {authPending ? (
-                  <Loader2 size={13} className="animate-spin" />
-                ) : (
-                  <LogIn size={13} />
-                )}
-                {!gapiReady ? 'Inicializuji…' : authPending ? 'Přihlašuji…' : 'Přihlásit se (editace)'}
-              </button>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   )
 }
