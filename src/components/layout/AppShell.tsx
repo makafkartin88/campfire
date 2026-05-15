@@ -27,7 +27,7 @@ export function AppShell() {
       )}
 
       {/* Main content */}
-      <div className="flex-1 min-w-0 overflow-auto">
+      <div className="flex-1 min-w-0 overflow-auto" data-scroll-container>
         <Outlet />
       </div>
     </div>
