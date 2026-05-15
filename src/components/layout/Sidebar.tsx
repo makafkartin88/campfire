@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FolderOpen, Folder, Music, Search } from 'lucide-react'
+import { FolderOpen, Folder, Music, Search, Plus } from 'lucide-react'
 import { useFoldersStore } from '../../store/folders.store'
 import { useSongsStore } from '../../store/songs.store'
 import { useUiStore } from '../../store/ui.store'
@@ -36,6 +36,17 @@ export function Sidebar() {
             className="w-full bg-stone-800 text-stone-200 text-sm pl-8 pr-3 py-1.5 rounded-md border border-stone-700 focus:outline-none focus:border-fire-600 placeholder-stone-600"
           />
         </div>
+      </div>
+
+      {/* Add song */}
+      <div className="px-3 py-2 border-b border-stone-800">
+        <Link
+          to="/import"
+          className="w-full flex items-center gap-2 px-3 py-2 bg-fire-700 hover:bg-fire-600 text-white text-sm rounded-md transition-colors font-medium"
+        >
+          <Plus size={15} />
+          Přidat píseň
+        </Link>
       </div>
 
       {/* Folder list */}

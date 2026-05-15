@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import { AppShell } from './components/layout/AppShell'
 import { HomePage } from './pages/HomePage'
 import { SongPage } from './pages/SongPage'
+import { ImportPage } from './pages/ImportPage'
 import { useSongsStore } from './store/songs.store'
 import { useFoldersStore } from './store/folders.store'
 import songData from './data/songs.json'
@@ -18,6 +19,7 @@ export function App() {
         <Route element={<AppShell />}>
           <Route index element={<HomePage />} />
           <Route path="song/:id" element={<SongPage />} />
+          <Route path="import" element={<ImportPage />} />
         </Route>
       </Routes>
     </HashRouter>
