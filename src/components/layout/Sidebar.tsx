@@ -10,7 +10,7 @@ import { createSongFolder } from '../../lib/drive/sync'
 import { SongList } from '../songs/SongList'
 
 export function Sidebar() {
-  const { folders, rootFolderId, activeFolderId, setActiveFolderId } = useFoldersStore()
+  const { folders, activeFolderId, setActiveFolderId } = useFoldersStore()
   const songs = useSongsStore((s) => s.songs)
   const { searchQuery, setSearchQuery } = useUiStore()
   const isSignedIn = useAuthStore((s) => s.isSignedIn)
