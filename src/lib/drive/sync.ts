@@ -169,14 +169,11 @@ async function migrateExistingPdfs(idx: SongbookIndex): Promise<SongbookIndex> {
     }
   }
 
-  // Scan each subfolder for PDFs
-  const foldersToScan = [
-    { driveId: PUBLIC_FOLDER_ID, indexFolderId: null as string | null },
-    ...subfolders.map((sf) => ({
-      driveId: sf.id,
-      indexFolderId: idx.folders.find((f) => f.name === sf.name)?.id ?? null,
-    })),
-  ]
+  // Scan only subfolders for PDFs (root folder files are ignored)
+  const foldersToScan = subfolders.map((sf) => ({
+    driveId: sf.id,
+    indexFolderId: idx.folders.find((f) => f.name === sf.name)?.id ?? null,
+  }))
 
   for (const { driveId, indexFolderId } of foldersToScan) {
     const { files } = await listFiles({
