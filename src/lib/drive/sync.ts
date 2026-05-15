@@ -157,23 +157,47 @@ export async function bootstrapIndex(): Promise<string> {
 // ─── Migrate existing PDFs (runs once when index is empty) ───────────────────
 
 async function migrateExistingPdfs(idx: SongbookIndex): Promise<SongbookIndex> {
-  const { files } = await listFiles({
-    q: `'${PUBLIC_FOLDER_ID}' in parents and mimeType='application/pdf' and trashed=false`,
+  // List subfolders first
+  const { files: subfolders } = await listFiles({
+    q: `'${PUBLIC_FOLDER_ID}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
   })
-  for (const file of files) {
-    const title = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
-    idx.songs.push({
-      id: uuidv4(),
-      title,
-      artist: '',
-      folderId: null,
-      key: '',
-      content: '',
-      pdfDriveId: file.id,
-      createdAt: file.modifiedTime ?? new Date().toISOString(),
-      updatedAt: file.modifiedTime ?? new Date().toISOString(),
-    })
+
+  // Ensure index folders exist for each Drive subfolder
+  for (const sf of subfolders) {
+    if (!idx.folders.find((f) => f.name === sf.name)) {
+      idx.folders.push({ id: uuidv4(), name: sf.name })
+    }
   }
+
+  // Scan each subfolder for PDFs
+  const foldersToScan = [
+    { driveId: PUBLIC_FOLDER_ID, indexFolderId: null as string | null },
+    ...subfolders.map((sf) => ({
+      driveId: sf.id,
+      indexFolderId: idx.folders.find((f) => f.name === sf.name)?.id ?? null,
+    })),
+  ]
+
+  for (const { driveId, indexFolderId } of foldersToScan) {
+    const { files } = await listFiles({
+      q: `'${driveId}' in parents and mimeType='application/pdf' and trashed=false`,
+    })
+    for (const file of files) {
+      const title = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
+      idx.songs.push({
+        id: uuidv4(),
+        title,
+        artist: '',
+        folderId: indexFolderId,
+        key: '',
+        content: '',
+        pdfDriveId: file.id,
+        createdAt: file.modifiedTime ?? new Date().toISOString(),
+        updatedAt: file.modifiedTime ?? new Date().toISOString(),
+      })
+    }
+  }
+
   return idx
 }
 
