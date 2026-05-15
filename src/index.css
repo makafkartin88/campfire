@@ -30,29 +30,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.chord-line {
+.chord-only-line {
   position: relative;
-  padding-top: 1.6em;
-  line-height: 1.9;
-  white-space: pre-wrap;
+  height: 1.6em;
+  white-space: pre;
+  margin-top: 0.4em;
+}
+
+.chord-mixed-line {
+  margin-top: 0.4em;
   word-break: break-word;
 }
 
 .chord-badge {
   position: absolute;
-  top: 0;
   font-family: ui-monospace, monospace;
   font-size: 0.78em;
   font-weight: 700;
   color: #fb923c;
   white-space: nowrap;
-  cursor: pointer;
   user-select: none;
-  transition: color 0.15s;
-}
-
-.chord-badge:hover {
-  color: #fdba74;
 }
 
 ::-webkit-scrollbar { width: 6px; }

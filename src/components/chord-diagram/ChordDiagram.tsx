@@ -112,21 +112,45 @@ function DiagramSvg({ name, pos }: { name: string; pos: ChordPosition }) {
   )
 }
 
+function FallbackSvg({ name }: { name: string }) {
+  return (
+    <svg width={W} height={H + 14} viewBox={`0 0 ${W} ${H + 14}`} className="flex-shrink-0">
+      <text x={W / 2} y={11} textAnchor="middle" fontSize={9} fontWeight="600" fill="#fb923c" fontFamily="monospace">
+        {name}
+      </text>
+      {/* Empty fretboard outline */}
+      {Array.from({ length: STRING_COUNT }, (_, i) => (
+        <line key={`s${i}`} x1={LEFT + i * STRING_GAP} y1={TOP} x2={LEFT + i * STRING_GAP} y2={TOP + FRET_COUNT * FRET_GAP} stroke="#44403c" strokeWidth={1} />
+      ))}
+      {Array.from({ length: FRET_COUNT + 1 }, (_, i) => (
+        <line key={`f${i}`} x1={LEFT} y1={TOP + i * FRET_GAP} x2={W - 6} y2={TOP + i * FRET_GAP} stroke="#44403c" strokeWidth={i === 0 ? NUT_H : 1} />
+      ))}
+      <text x={W / 2} y={TOP + (FRET_COUNT * FRET_GAP) / 2 + 5} textAnchor="middle" fontSize={14} fill="#57534e">?</text>
+    </svg>
+  )
+}
+
 export function ChordDiagram({ name }: Props) {
   const [pos, setPos] = useState<ChordPosition | null>(null)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    getFirstPosition(name).then(setPos)
+    let active = true
+    getFirstPosition(name).then((p) => {
+      if (!active) return
+      setPos(p)
+      setLoaded(true)
+    })
+    return () => {
+      active = false
+    }
   }, [name])
 
-  if (!pos) {
-    return (
-      <div className="flex flex-col items-center gap-1 w-[70px]">
-        <div className="text-fire-400 font-mono text-xs font-bold">{name}</div>
-        <div className="w-[60px] h-[80px] border border-stone-700 rounded flex items-center justify-center text-stone-500 text-xs">?</div>
-      </div>
-    )
+  if (!loaded) {
+    return <div style={{ width: W, height: H + 14 }} className="flex-shrink-0" />
   }
+
+  if (!pos) return <FallbackSvg name={name} />
 
   return <DiagramSvg name={name} pos={pos} />
 }

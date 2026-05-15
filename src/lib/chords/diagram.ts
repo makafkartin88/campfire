@@ -19,14 +19,21 @@ const SUFFIX_ALIASES: Record<string, string> = {
   '': 'major',
   M: 'major',
   maj: 'major',
-  min: 'm',
-  minor: 'm',
+  m: 'minor',
+  min: 'minor',
+  mi: 'minor',
+}
+
+// Czech "H" = English "B", Czech "B" = English "Bb"
+const KEY_ALIASES: Record<string, string> = {
+  H: 'B',
 }
 
 function parseChordName(name: string): { key: string; suffix: string } {
-  const match = name.match(/^([A-G][#b]?)(.*)/)
+  const match = name.match(/^([A-H][#b]?)(.*)/)
   if (!match) return { key: name, suffix: 'major' }
-  const [, key, rawSuffix] = match
+  const [, rawKey, rawSuffix] = match
+  const key = KEY_ALIASES[rawKey] ?? rawKey
   const suffix = SUFFIX_ALIASES[rawSuffix] ?? (rawSuffix || 'major')
   return { key, suffix }
 }
