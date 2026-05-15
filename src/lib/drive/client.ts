@@ -163,6 +163,15 @@ export async function uploadPdf(
   return res.json()
 }
 
+export async function setFilePublicReader(fileId: string): Promise<void> {
+  const res = await fetch(`${BASE}/drive/v3/files/${fileId}/permissions`, {
+    method: 'POST',
+    headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: 'anyone', role: 'reader' }),
+  })
+  if (!res.ok && res.status !== 409) throw new Error(`Drive setPublic failed: ${res.status}`)
+}
+
 export async function findFileByName(
   name: string,
   parentId: string,

@@ -6,6 +6,7 @@ import {
   createJsonFile,
   updateJsonFile,
   findFileByName,
+  setFilePublicReader,
 } from './client'
 import type { Song, DriveFolder } from '../../types'
 import { useSongsStore } from '../../store/songs.store'
@@ -147,10 +148,12 @@ export async function bootstrapIndex(): Promise<string> {
   const existing = await findFileByName(INDEX_FILENAME, PUBLIC_FOLDER_ID)
   if (existing) {
     setIndexFileId(existing.id)
+    await setFilePublicReader(existing.id).catch(() => {})
     return existing.id
   }
   const file = await createJsonFile(INDEX_FILENAME, PUBLIC_FOLDER_ID, emptyIndex())
   setIndexFileId(file.id)
+  await setFilePublicReader(file.id)
   return file.id
 }
 
