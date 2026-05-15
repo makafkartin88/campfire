@@ -28,7 +28,6 @@ const EXAMPLE = `[C]Twinkle, twinkle, [G]little star
 export function SongEditor({ song }: Props) {
   const navigate = useNavigate()
   const folders = useFoldersStore((s) => s.folders)
-  const rootFolderId = useFoldersStore((s) => s.rootFolderId)
 
   const [form, setForm] = useState({
     title: song?.title ?? '',
@@ -51,16 +50,15 @@ export function SongEditor({ song }: Props) {
     setError(null)
     setSaving(true)
     try {
-      // Find folder ID by name
       const folder = folders.find((f) => f.name === form.folder)
-      const parentId = folder?.id ?? rootFolderId ?? ''
+      const folderId = folder?.id ?? null
 
       const songData: Song = {
         ...(song ?? { ...DEFAULT_SONG, id: '', driveFileId: null, driveParentFolderId: null, createdAt: '', updatedAt: '' }),
         ...form,
         pdfDriveId: song?.pdfDriveId ?? null,
       }
-      const saved = await saveSong(songData, parentId)
+      const saved = await saveSong(songData, folderId)
       navigate(`/song/${saved.id}`)
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Chyba při ukládání')

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FolderOpen, Folder, Plus, Music, LogOut, LogIn, Search } from 'lucide-react'
+import { FolderOpen, Folder, Plus, Music, LogOut, LogIn, Search, Copy } from 'lucide-react'
 import { useFoldersStore } from '../../store/folders.store'
 import { useSongsStore } from '../../store/songs.store'
 import { useUiStore } from '../../store/ui.store'
@@ -18,6 +18,11 @@ export function Sidebar() {
   const isOwner = isSignedIn && isTokenValid()
   const navigate = useNavigate()
   const [newFolderName, setNewFolderName] = useState('')
+  const [bannerDismissed, setBannerDismissed] = useState(false)
+
+  const indexEnvId = import.meta.env.VITE_INDEX_FILE_ID as string | undefined
+  const indexLocalId = localStorage.getItem('campfire-index-file-id')
+  const showBootstrapBanner = isOwner && !indexEnvId && !!indexLocalId && !bannerDismissed
   const [creatingFolder, setCreatingFolder] = useState(false)
   const [showNewFolder, setShowNewFolder] = useState(false)
 
@@ -26,10 +31,10 @@ export function Sidebar() {
     songs.filter((s) => s.driveParentFolderId === folderId).length
 
   async function handleCreateFolder() {
-    if (!newFolderName.trim() || !rootFolderId) return
+    if (!newFolderName.trim()) return
     setCreatingFolder(true)
     try {
-      await createSongFolder(newFolderName.trim(), rootFolderId)
+      await createSongFolder(newFolderName.trim())
       setNewFolderName('')
       setShowNewFolder(false)
     } finally {
@@ -153,6 +158,32 @@ export function Sidebar() {
           <SongList />
         </div>
       </div>
+
+      {/* Bootstrap banner — shown once after first login until VITE_INDEX_FILE_ID is set */}
+      {showBootstrapBanner && (
+        <div className="mx-3 mb-2 p-3 bg-amber-900/40 border border-amber-700/50 rounded-md text-xs text-amber-300 space-y-2">
+          <p className="font-medium">Zpěvník inicializován!</p>
+          <p className="text-amber-400/80">Přidej do GitHub Secrets a redeploy:</p>
+          <div className="flex items-center gap-1">
+            <code className="flex-1 bg-stone-900 px-2 py-1 rounded text-xs text-amber-200 break-all">
+              VITE_INDEX_FILE_ID={indexLocalId}
+            </code>
+            <button
+              onClick={() => navigator.clipboard.writeText(indexLocalId!)}
+              className="p-1 hover:text-amber-100 shrink-0"
+              title="Kopírovat"
+            >
+              <Copy size={12} />
+            </button>
+          </div>
+          <button
+            onClick={() => setBannerDismissed(true)}
+            className="text-amber-600 hover:text-amber-400 text-xs"
+          >
+            Zavřít
+          </button>
+        </div>
+      )}
 
       {/* Auth footer — only shown when Google credentials are configured */}
       {isConfigured() && (

@@ -1,236 +1,242 @@
 import { v4 as uuidv4 } from 'uuid'
 import {
-  listFilesPublic,
   getFileContentPublic,
   listFiles,
-  createFolder,
+  getFileContent,
   createJsonFile,
   updateJsonFile,
-  deleteFile,
-  getFileContent,
+  findFileByName,
 } from './client'
 import type { Song, DriveFolder } from '../../types'
 import { useSongsStore } from '../../store/songs.store'
 import { useFoldersStore } from '../../store/folders.store'
 
 const PUBLIC_FOLDER_ID = import.meta.env.VITE_PUBLIC_FOLDER_ID as string
+const INDEX_FILENAME = '_index.json'
+const INDEX_STORAGE_KEY = 'campfire-index-file-id'
 
-// ─── Public load (no auth required) ─────────────────────────────────────────
+// ─── Types ───────────────────────────────────────────────────────────────────
 
-export async function loadPublicSongs(): Promise<void> {
-  if (!PUBLIC_FOLDER_ID) return
-  useSongsStore.getState().setLoading(true)
+interface IndexFolder {
+  id: string
+  name: string
+}
 
-  try {
-    // Load subfolders
-    const { files: folderFiles } = await listFilesPublic({
-      q: `'${PUBLIC_FOLDER_ID}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
-    })
-    const folders: DriveFolder[] = folderFiles.map((f) => ({
-      id: f.id,
-      name: f.name,
-      parentId: PUBLIC_FOLDER_ID,
-    }))
-    useFoldersStore.getState().setFolders(folders)
-    useFoldersStore.getState().setRootFolderId(PUBLIC_FOLDER_ID)
+interface IndexSong {
+  id: string
+  title: string
+  artist: string
+  folderId: string | null
+  key: string
+  content: string
+  pdfDriveId: string | null
+  createdAt: string
+  updatedAt: string
+}
 
-    // Load all songs from root + subfolders
-    const allFolderIds = [PUBLIC_FOLDER_ID, ...folders.map((f) => f.id)]
-    const songs: Song[] = []
+interface SongbookIndex {
+  version: 1
+  updatedAt: string
+  folders: IndexFolder[]
+  songs: IndexSong[]
+}
 
-    for (const folderId of allFolderIds) {
-      const folderName = folders.find((f) => f.id === folderId)?.name ?? ''
+// ─── Index file ID cache ──────────────────────────────────────────────────────
 
-      const { files } = await listFilesPublic({
-        q: `'${folderId}' in parents and trashed=false and (mimeType='application/json' or mimeType='application/pdf')`,
-      })
+let _indexFileId: string | null = (import.meta.env.VITE_INDEX_FILE_ID as string) || null
 
-      for (const file of files) {
-        if (file.mimeType === 'application/pdf') {
-          // PDF-only song — displayed via Google Drive iframe viewer
-          const title = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
-          songs.push({
-            id: file.id,
-            title,
-            artist: '',
-            folder: folderName,
-            key: '',
-            content: '',
-            pdfDriveId: file.id,
-            driveFileId: file.id,
-            driveParentFolderId: folderId,
-            createdAt: file.modifiedTime ?? '',
-            updatedAt: file.modifiedTime ?? '',
-          })
-        } else {
-          // JSON song with chord notation
-          try {
-            const data = await getFileContentPublic(file.id) as Partial<Song>
-            if (data.title) {
-              songs.push({
-                id: data.id ?? file.id,
-                title: data.title,
-                artist: data.artist ?? '',
-                folder: data.folder ?? folderName,
-                key: data.key ?? '',
-                content: data.content ?? '',
-                pdfDriveId: data.pdfDriveId ?? null,
-                driveFileId: file.id,
-                driveParentFolderId: folderId,
-                createdAt: data.createdAt ?? '',
-                updatedAt: data.updatedAt ?? '',
-              })
-            }
-          } catch {
-            // Skip malformed files silently
-          }
-        }
-      }
-    }
+function getIndexFileId(): string | null {
+  return _indexFileId ?? localStorage.getItem(INDEX_STORAGE_KEY)
+}
 
-    useSongsStore.getState().setSongs(songs)
-  } finally {
-    useSongsStore.getState().setLoading(false)
+function setIndexFileId(id: string): void {
+  _indexFileId = id
+  localStorage.setItem(INDEX_STORAGE_KEY, id)
+}
+
+// ─── Internal helpers ─────────────────────────────────────────────────────────
+
+function emptyIndex(): SongbookIndex {
+  return { version: 1, updatedAt: new Date().toISOString(), folders: [], songs: [] }
+}
+
+async function readIndex(): Promise<SongbookIndex> {
+  const id = getIndexFileId()
+  if (!id) throw new Error('Index file ID not set')
+  return (await getFileContent(id)) as SongbookIndex
+}
+
+async function writeIndex(idx: SongbookIndex): Promise<void> {
+  const id = getIndexFileId()
+  if (!id) throw new Error('Index file ID not set')
+  idx.updatedAt = new Date().toISOString()
+  await updateJsonFile(id, idx)
+}
+
+function applyIndex(idx: SongbookIndex): void {
+  const folders: DriveFolder[] = idx.folders.map((f) => ({
+    id: f.id,
+    name: f.name,
+    parentId: null,
+  }))
+  useFoldersStore.getState().setFolders(folders)
+  useFoldersStore.getState().setRootFolderId(PUBLIC_FOLDER_ID)
+
+  const songs: Song[] = idx.songs.map((s) => indexSongToSong(s, idx.folders))
+  useSongsStore.getState().setSongs(songs)
+}
+
+function indexSongToSong(s: IndexSong, folders: IndexFolder[]): Song {
+  const folderName = folders.find((f) => f.id === s.folderId)?.name ?? ''
+  return {
+    id: s.id,
+    title: s.title,
+    artist: s.artist,
+    folder: folderName,
+    key: s.key,
+    content: s.content,
+    pdfDriveId: s.pdfDriveId,
+    driveFileId: null,
+    driveParentFolderId: s.folderId,
+    createdAt: s.createdAt,
+    updatedAt: s.updatedAt,
   }
 }
 
-// ─── Authenticated load (owner only — sees all files, not just public) ───────
-
-export async function loadOwnerSongs(): Promise<void> {
-  if (!PUBLIC_FOLDER_ID) return
-  useSongsStore.getState().setLoading(true)
-
-  try {
-    const { files: folderFiles } = await listFiles({
-      q: `'${PUBLIC_FOLDER_ID}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
-    })
-    const folders: DriveFolder[] = folderFiles.map((f) => ({
-      id: f.id,
-      name: f.name,
-      parentId: PUBLIC_FOLDER_ID,
-    }))
-    useFoldersStore.getState().setFolders(folders)
-    useFoldersStore.getState().setRootFolderId(PUBLIC_FOLDER_ID)
-
-    const allFolderIds = [PUBLIC_FOLDER_ID, ...folders.map((f) => f.id)]
-    const songs: Song[] = []
-
-    for (const folderId of allFolderIds) {
-      const folderName = folders.find((f) => f.id === folderId)?.name ?? ''
-      const { files } = await listFiles({
-        q: `'${folderId}' in parents and trashed=false and (mimeType='application/json' or mimeType='application/pdf')`,
-      })
-
-      for (const file of files) {
-        if (file.mimeType === 'application/pdf') {
-          const title = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
-          songs.push({
-            id: file.id,
-            title,
-            artist: '',
-            folder: folderName,
-            key: '',
-            content: '',
-            pdfDriveId: file.id,
-            driveFileId: file.id,
-            driveParentFolderId: folderId,
-            createdAt: file.modifiedTime ?? '',
-            updatedAt: file.modifiedTime ?? '',
-          })
-        } else {
-          try {
-            const data = await getFileContent(file.id) as Partial<Song>
-            if (data.title) {
-              songs.push({
-                id: data.id ?? file.id,
-                title: data.title,
-                artist: data.artist ?? '',
-                folder: data.folder ?? folderName,
-                key: data.key ?? '',
-                content: data.content ?? '',
-                pdfDriveId: data.pdfDriveId ?? null,
-                driveFileId: file.id,
-                driveParentFolderId: folderId,
-                createdAt: data.createdAt ?? '',
-                updatedAt: data.updatedAt ?? '',
-              })
-            }
-          } catch {
-            // skip malformed files
-          }
-        }
-      }
-    }
-
-    useSongsStore.getState().setSongs(songs)
-  } finally {
-    useSongsStore.getState().setLoading(false)
-  }
-}
-
-// ─── Authenticated sync (owner only) ────────────────────────────────────────
-
-export async function bootstrapOwnerFolder(): Promise<string> {
-  // When signed in as owner, use the same PUBLIC_FOLDER_ID for writes
-  // (owner already has write access to their own folder)
-  if (PUBLIC_FOLDER_ID) {
-    useFoldersStore.getState().setRootFolderId(PUBLIC_FOLDER_ID)
-    return PUBLIC_FOLDER_ID
-  }
-
-  // Fallback: find or create "Campfire" folder if no public folder configured
-  const { files } = await listFiles({
-    q: `name='Campfire' and mimeType='application/vnd.google-apps.folder' and trashed=false and 'root' in parents`,
-  })
-  let rootId: string
-  if (files.length > 0) {
-    rootId = files[0].id
-  } else {
-    const folder = await createFolder('Campfire', null)
-    rootId = folder.id
-  }
-  useFoldersStore.getState().setRootFolderId(rootId)
-  return rootId
-}
-
-export async function saveSong(song: Song, parentFolderId: string): Promise<Song> {
-  const songData: Song = {
-    ...song,
+function songToIndexSong(song: Song, folderId: string | null): IndexSong {
+  return {
     id: song.id || uuidv4(),
+    title: song.title,
+    artist: song.artist,
+    folderId,
+    key: song.key,
+    content: song.content,
+    pdfDriveId: song.pdfDriveId,
     createdAt: song.createdAt || new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   }
+}
 
-  if (song.driveFileId && !song.pdfDriveId) {
-    // Update existing JSON song
-    await updateJsonFile(song.driveFileId, songData)
-    const updated = { ...songData, driveParentFolderId: parentFolderId }
-    useSongsStore.getState().updateSong(updated)
-    return updated
-  } else {
-    // Create new JSON song
-    const file = await createJsonFile(`${songData.id}.json`, parentFolderId, songData)
-    const created = { ...songData, driveFileId: file.id, driveParentFolderId: parentFolderId }
-    useSongsStore.getState().addSong(created)
-    return created
+// ─── Public load (no auth, 1 API call) ───────────────────────────────────────
+
+export async function loadPublicSongs(): Promise<void> {
+  const id = getIndexFileId()
+  if (!id) {
+    useSongsStore.getState().setSongs([])
+    useSongsStore.getState().setLoading(false)
+    return
   }
+  useSongsStore.getState().setLoading(true)
+  try {
+    const idx = (await getFileContentPublic(id)) as SongbookIndex
+    applyIndex(idx)
+  } catch {
+    useSongsStore.getState().setSongs([])
+  } finally {
+    useSongsStore.getState().setLoading(false)
+  }
+}
+
+// ─── Bootstrap index file (owner only) ───────────────────────────────────────
+
+export async function bootstrapIndex(): Promise<string> {
+  const existing = await findFileByName(INDEX_FILENAME, PUBLIC_FOLDER_ID)
+  if (existing) {
+    setIndexFileId(existing.id)
+    return existing.id
+  }
+  const file = await createJsonFile(INDEX_FILENAME, PUBLIC_FOLDER_ID, emptyIndex())
+  setIndexFileId(file.id)
+  return file.id
+}
+
+// ─── Migrate existing PDFs (runs once when index is empty) ───────────────────
+
+async function migrateExistingPdfs(idx: SongbookIndex): Promise<SongbookIndex> {
+  const { files } = await listFiles({
+    q: `'${PUBLIC_FOLDER_ID}' in parents and mimeType='application/pdf' and trashed=false`,
+  })
+  for (const file of files) {
+    const title = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
+    idx.songs.push({
+      id: uuidv4(),
+      title,
+      artist: '',
+      folderId: null,
+      key: '',
+      content: '',
+      pdfDriveId: file.id,
+      createdAt: file.modifiedTime ?? new Date().toISOString(),
+      updatedAt: file.modifiedTime ?? new Date().toISOString(),
+    })
+  }
+  return idx
+}
+
+// ─── Owner load (authenticated) ──────────────────────────────────────────────
+
+export async function loadOwnerSongs(): Promise<void> {
+  useSongsStore.getState().setLoading(true)
+  try {
+    await bootstrapIndex()
+    let idx = await readIndex()
+
+    if (idx.songs.length === 0) {
+      idx = await migrateExistingPdfs(idx)
+      if (idx.songs.length > 0) await writeIndex(idx)
+    }
+
+    applyIndex(idx)
+  } finally {
+    useSongsStore.getState().setLoading(false)
+  }
+}
+
+// ─── bootstrapOwnerFolder — kept for API compatibility ───────────────────────
+
+export async function bootstrapOwnerFolder(): Promise<string> {
+  await bootstrapIndex()
+  useFoldersStore.getState().setRootFolderId(PUBLIC_FOLDER_ID)
+  return PUBLIC_FOLDER_ID
+}
+
+// ─── CRUD ─────────────────────────────────────────────────────────────────────
+
+export async function saveSong(song: Song, folderId: string | null): Promise<Song> {
+  const idx = await readIndex()
+  const indexSong = songToIndexSong(song, folderId)
+  const pos = idx.songs.findIndex((s) => s.id === indexSong.id)
+  if (pos >= 0) {
+    idx.songs[pos] = indexSong
+  } else {
+    idx.songs.push(indexSong)
+  }
+  await writeIndex(idx)
+
+  const result = indexSongToSong(indexSong, idx.folders)
+  if (pos >= 0) {
+    useSongsStore.getState().updateSong(result)
+  } else {
+    useSongsStore.getState().addSong(result)
+  }
+  return result
 }
 
 export async function removeSong(song: Song): Promise<void> {
-  if (song.driveFileId && !song.pdfDriveId) {
-    await deleteFile(song.driveFileId)
-  }
-  if (song.pdfDriveId && song.pdfDriveId !== song.driveFileId) {
-    await deleteFile(song.pdfDriveId).catch(() => {})
-  }
+  const idx = await readIndex()
+  idx.songs = idx.songs.filter((s) => s.id !== song.id)
+  await writeIndex(idx)
   useSongsStore.getState().removeSong(song.id)
 }
 
-export async function createSongFolder(name: string, rootId: string): Promise<DriveFolder> {
-  const file = await createFolder(name, rootId)
-  const folder: DriveFolder = { id: file.id, name, parentId: rootId }
-  useFoldersStore.getState().addFolder(folder)
-  return folder
+export async function createSongFolder(name: string): Promise<DriveFolder> {
+  const idx = await readIndex()
+  const newFolder: IndexFolder = { id: uuidv4(), name }
+  idx.folders.push(newFolder)
+  await writeIndex(idx)
+  const driveFolder: DriveFolder = { id: newFolder.id, name, parentId: null }
+  useFoldersStore.getState().addFolder(driveFolder)
+  return driveFolder
 }
 
 export { getFileContent }

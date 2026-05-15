@@ -163,6 +163,17 @@ export async function uploadPdf(
   return res.json()
 }
 
+export async function findFileByName(
+  name: string,
+  parentId: string,
+): Promise<DriveFile | null> {
+  const { files } = await listFiles({
+    q: `'${parentId}' in parents and name='${name}' and trashed=false`,
+    fields: 'files(id,name,mimeType,parents)',
+  })
+  return files[0] ?? null
+}
+
 export async function moveSong(song: Song, newParentId: string): Promise<void> {
   if (!song.driveFileId) return
   const oldParent = song.driveParentFolderId ?? ''
