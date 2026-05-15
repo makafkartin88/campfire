@@ -5,12 +5,14 @@ import type { Song } from '../types'
 interface SongsState {
   songs: Song[]
   isLoading: boolean
+  loadingStatus: string
   setSongs: (songs: Song[]) => void
   addSong: (song: Song) => void
   updateSong: (song: Song) => void
   removeSong: (id: string) => void
   getSong: (id: string) => Song | undefined
   setLoading: (loading: boolean) => void
+  setLoadingStatus: (status: string) => void
 }
 
 export const useSongsStore = create<SongsState>()(
@@ -18,6 +20,7 @@ export const useSongsStore = create<SongsState>()(
     (set, get) => ({
       songs: [],
       isLoading: false,
+      loadingStatus: '',
       setSongs: (songs) => set({ songs }),
       addSong: (song) => set((s) => ({ songs: [...s.songs, song] })),
       updateSong: (song) =>
@@ -25,6 +28,7 @@ export const useSongsStore = create<SongsState>()(
       removeSong: (id) => set((s) => ({ songs: s.songs.filter((x) => x.id !== id) })),
       getSong: (id) => get().songs.find((x) => x.id === id),
       setLoading: (loading) => set({ isLoading: loading }),
+      setLoadingStatus: (status) => set({ loadingStatus: status }),
     }),
     { name: 'campfire-songs' },
   ),

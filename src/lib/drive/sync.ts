@@ -126,14 +126,18 @@ export async function loadPublicSongs(): Promise<void> {
     useSongsStore.getState().setLoading(false)
     return
   }
-  useSongsStore.getState().setLoading(true)
+  const store = useSongsStore.getState()
+  store.setLoading(true)
+  store.setLoadingStatus('Načítám zpěvník…')
   try {
     const idx = (await getFileContentPublic(id)) as SongbookIndex
     applyIndex(idx)
+    store.setLoadingStatus('')
   } catch {
-    useSongsStore.getState().setSongs([])
+    store.setSongs([])
+    store.setLoadingStatus('')
   } finally {
-    useSongsStore.getState().setLoading(false)
+    store.setLoading(false)
   }
 }
 
@@ -176,19 +180,25 @@ async function migrateExistingPdfs(idx: SongbookIndex): Promise<SongbookIndex> {
 // ─── Owner load (authenticated) ──────────────────────────────────────────────
 
 export async function loadOwnerSongs(): Promise<void> {
-  useSongsStore.getState().setLoading(true)
+  const store = useSongsStore.getState()
+  store.setLoading(true)
   try {
+    store.setLoadingStatus('Připravuji Drive…')
     await bootstrapIndex()
+
+    store.setLoadingStatus('Načítám písničky…')
     let idx = await readIndex()
 
     if (idx.songs.length === 0) {
+      store.setLoadingStatus('Migrace PDF souborů…')
       idx = await migrateExistingPdfs(idx)
       if (idx.songs.length > 0) await writeIndex(idx)
     }
 
     applyIndex(idx)
+    store.setLoadingStatus('')
   } finally {
-    useSongsStore.getState().setLoading(false)
+    store.setLoading(false)
   }
 }
 
@@ -203,6 +213,7 @@ export async function bootstrapOwnerFolder(): Promise<string> {
 // ─── CRUD ─────────────────────────────────────────────────────────────────────
 
 export async function saveSong(song: Song, folderId: string | null): Promise<Song> {
+  useSongsStore.getState().setLoadingStatus('Ukládám…')
   const idx = await readIndex()
   const indexSong = songToIndexSong(song, folderId)
   const pos = idx.songs.findIndex((s) => s.id === indexSong.id)
@@ -212,6 +223,7 @@ export async function saveSong(song: Song, folderId: string | null): Promise<Son
     idx.songs.push(indexSong)
   }
   await writeIndex(idx)
+  useSongsStore.getState().setLoadingStatus('')
 
   const result = indexSongToSong(indexSong, idx.folders)
   if (pos >= 0) {

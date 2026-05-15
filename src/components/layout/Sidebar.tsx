@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FolderOpen, Folder, Plus, Music, LogOut, LogIn, Search, Copy } from 'lucide-react'
+import { FolderOpen, Folder, Plus, Music, LogOut, LogIn, Search, Copy, ExternalLink, Loader2 } from 'lucide-react'
 import { useFoldersStore } from '../../store/folders.store'
 import { useSongsStore } from '../../store/songs.store'
 import { useUiStore } from '../../store/ui.store'
@@ -12,6 +12,8 @@ import { SongList } from '../songs/SongList'
 export function Sidebar() {
   const { folders, activeFolderId, setActiveFolderId } = useFoldersStore()
   const songs = useSongsStore((s) => s.songs)
+  const isLoading = useSongsStore((s) => s.isLoading)
+  const loadingStatus = useSongsStore((s) => s.loadingStatus)
   const { searchQuery, setSearchQuery } = useUiStore()
   const isSignedIn = useAuthStore((s) => s.isSignedIn)
   const isTokenValid = useAuthStore((s) => s.isTokenValid)
@@ -182,6 +184,44 @@ export function Sidebar() {
           >
             Zavřít
           </button>
+        </div>
+      )}
+
+      {/* Drive links + loading status */}
+      {isOwner && (
+        <div className="px-3 py-2 border-t border-stone-800 space-y-1">
+          <a
+            href={`https://drive.google.com/drive/folders/${import.meta.env.VITE_PUBLIC_FOLDER_ID}`}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 text-xs text-stone-600 hover:text-stone-400 transition-colors"
+          >
+            <ExternalLink size={11} />
+            Složka na Drive
+          </a>
+          {(() => {
+            const localId = localStorage.getItem('campfire-index-file-id')
+            const id = (import.meta.env.VITE_INDEX_FILE_ID as string) || localId
+            return id ? (
+              <a
+                href={`https://drive.google.com/file/d/${id}/view`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-xs text-stone-600 hover:text-stone-400 transition-colors"
+              >
+                <ExternalLink size={11} />
+                _index.json
+              </a>
+            ) : null
+          })()}
+        </div>
+      )}
+
+      {/* Loading status bar */}
+      {(isLoading || loadingStatus) && (
+        <div className="px-3 py-2 border-t border-stone-800 flex items-center gap-2 text-xs text-stone-500">
+          <Loader2 size={12} className="animate-spin shrink-0" />
+          <span>{loadingStatus || 'Načítám…'}</span>
         </div>
       )}
 
