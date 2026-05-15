@@ -3,5 +3,14 @@
     { "id": "anglicke", "name": "Anglické" },
     { "id": "ceske", "name": "České" }
   ],
-  "songs": []
+  "songs": [
+    {
+      "id": "divka-s-perlami-ve-vlasech",
+      "title": "Dívka s perlami ve vlasech",
+      "artist": "Aleš Brichta",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Zas mě tu [D]máš, [Am]nějak se [Em]mračíš\n[Em]vybledlej [D]smích už ve [Am]dveřích.[Em]\n[Em]S čelenkou z [D]perel [Am]svatozář [Em]ztrácíš\n[Em]kolik se [D]platí za [Am]vláčnej [Em]hřích.\n\nR: [G]No tak lásko, [D]co chceš mi říct\n[Am]máš už perly možná i [Em]víc\n[G]lásko na [D]co se ptáš, [Am]svíčku za[Em]hasínáš.\n[G]Nemám lásko [D]co bych ti dal,\n[Am]chtělas' všechno, nebyl jsem [Em]král\n[G]lásko na [D]co se ptáš, [Am]perly ve vlasech [Em]máš.\n\n[Em]Tvý horky [D]rty, víc [Am]radši [Em]ne,\n[Em]nejsou už [D]mý, [Am]nejsi má [Em]Cher.\n[Em]Něco snad [D]chápu, [Am]to ne, to [Em]ne,\n[Em]bolí to, [D]hořím, jak [Am]černej [Em]tér.\n\nR2: [G]No tak lásko, [D]kdo mi tě vzal,\n[Am]komus dala tělo i [Em]duši,\n[G]lásko na [D]co je pláč, [Am]když to skončit [Em]má.\n[G]Vždyť už lásko, [D]svý perly máš\n[Am]tak proč padaj měněj se v [Em]slzy,\n[G]lásko na [D]co je pláč, [Am]perly ve vlasech [Em]máš.\n\n[Em]Chtěla jsi [D]víc pro [Am]svoje [Em]touhy,\n[Em]já chudej [D]princ, [Am]mám jen co [Em]mám\n[Em]Co vlastně [D]zbývá [Am]jen slzy [Em]pouhý\n[Em]ze svatebních [D]zvonů, z [Am]nebeskejch [Em]bran.\n\nR1 + R2 (na konci)"
+    }
+  ]
 }
