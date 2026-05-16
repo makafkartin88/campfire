@@ -1,12 +1,15 @@
-# Campfire — Batch Song Import Instructions
+# Campfire — Re-import všech PDF (v2)
 
-You are working in the Campfire songbook repo (Vite+React+TS PWA, deployed to GitHub Pages).
+Jsi v repozitáři Campfire songbook (Vite+React+TS, GitHub Pages).
 
-**GOAL:** Import all PDF songs from `C:\Users\uzivatel\Downloads\` into `src/data/songs.json`, commit and push in batches. The relevant subfolders are `České` and `Anglické`.
+**CÍLEM** je znovu zpracovat všechna PDF z `C:\Users\uzivatel\Downloads\České\`
+a `C:\Users\uzivatel\Downloads\Anglické\` a nahradit záznamy v `src/data/songs.json`
+kvalitnějšími verzemi. Stávající záznamy se **nahradí** (upsert dle slug z názvu souboru),
+manuálně přidané písničky bez odpovídajícího PDF se zachovají.
 
 ---
 
-## Data Format (`src/data/songs.json`)
+## Datový formát (`src/data/songs.json`)
 
 ```json
 {
@@ -16,12 +19,12 @@ You are working in the Campfire songbook repo (Vite+React+TS PWA, deployed to Gi
   ],
   "songs": [
     {
-      "id": "kebab-case-slug",
-      "title": "Original Title with accents",
-      "artist": "Artist Name",
+      "id": "artist-slug-title-slug",
+      "title": "Název s diakritikou",
+      "artist": "Interpret",
       "folderId": "ceske",
       "key": "Em",
-      "content": "[Em]Lyric line with [D]chords inline\n[G]Next line..."
+      "content": "[Em]Text písničky [D]s akordy inline\n[G]Druhý řádek"
     }
   ]
 }
@@ -29,107 +32,274 @@ You are working in the Campfire songbook repo (Vite+React+TS PWA, deployed to Gi
 
 ---
 
-## Conversion Rules
-
-1. **ID:** ASCII kebab-case slug from title, max 60 chars. Strip accents via NFD normalization.
-   Example: `"Dívka s perlami"` → `"divka-s-perlami"`
-
-2. **folderId:** derived from subfolder name.
-   - `"Anglické"` → `"anglicke"`
-   - `"České"` → `"ceske"`
-
-3. **key:** detect from first chord in content, or leave `""` if unclear.
-
-4. **content:** lyrics + chords in INLINE `[Chord]text` format.
-   - **Chord-above-lyric lines:** align chord X-position to nearest character in the lyrics line below. Insert `[Chord]` at that character position.
-   - **Czech chord normalization:**
-     - `Emi` → `Em`, `Ami` → `Am`, `Hmi` → `Bm`
-     - Czech `H` → international `B` (Czech H is B in international notation)
-     - Czech `B` stays as `B`
-   - **Section markers** like `[Chorus]`, `[Verse]`, `[Refrén]`, `[Bridge]`, `[Intro]`, `[Outro]`: KEEP them as literal text in content. The app renders them as orange section headers (they are NOT chords).
-   - **Empty lines:** keep as separators between verses.
-   - **Strip junk:** copyright notices, URLs, page footers, ads from PDF.
-
-### Chord Validation Regex (used by app's parser)
-
-```
-/^[A-H][#b]?(mi|m|maj|min|aug|dim|sus|add)?[0-9]*(\/[A-H][#b]?)?$/
-```
-
-If a token in `[]` doesn't match this, it's treated as a section marker, not a chord.
-
----
-
 ## Workflow
 
-### Phase 1 — Inventory
+### Fáze 1 — Inventura (proveď jako první, reportuj výsledek)
 
-1. Read `src/data/songs.json` → collect existing song IDs into a Set.
-2. Glob `C:\Users\uzivatel\Downloads\Anglické\*.pdf`
-3. Glob `C:\Users\uzivatel\Downloads\České\*.pdf`
-4. For each PDF: compute candidate slug from filename (strip `.pdf`, normalize NFD, lowercase, kebab-case).
-   If candidate ID is already in the existing set → **SKIP** (don't queue it).
-5. Build a queue of `{ pdfPath, subfolder }` for new songs only.
-6. **Report:** total PDFs found, how many skipped as duplicates, how many to process.
-7. **Wait for user approval** before launching Phase 2 if more than 80 songs queued.
+1. Přečti `src/data/songs.json` → ulož `folders` array; ulož songs jako `Map<id, song>`
+2. Glob `C:\Users\uzivatel\Downloads\České\*.pdf`
+3. Glob `C:\Users\uzivatel\Downloads\Anglické\*.pdf`
+4. Pro každé PDF: z názvu souboru odvoď `artist`, `title`, `slug`, `folderId` (viz sekci "Slug z názvu souboru")
+5. Reportuj: celkový počet PDF, kolik bude nahrazovat existující záznamy, kolik je nových
 
-### Phase 2 — Parallel Extraction
+**Počkej na souhlas před Fází 2 pokud je PDF > 120.**
 
-- Split the queue into batches of ~10 songs each.
-- For each batch, spawn **one Task subagent** (`subagent_type=general-purpose`) **in parallel**.
-- Each subagent receives: list of PDF paths + the conversion rules above + the existing IDs set.
-- Each subagent returns JSON: `{ entries: SongEntry[], skipped: { path: string, reason: string }[] }`
+### Fáze 2 — Paralelní extrakce (batche po 8)
 
-Each subagent must:
-- Read each PDF via the Read tool.
-- If Read returns no extractable text (scanned image PDF): add to `skipped` with `reason: "scanned"`. **Do NOT OCR.** Continue with next file.
-- Extract title (usually first line), artist (often subtitle or second line), key (from first chord or chord chart header).
-- Convert chord notation to inline `[Chord]text` format using column-position alignment.
-- Generate kebab-case ID. If it would collide with an existing ID → skip with `reason: "duplicate-id-collision"`.
-- Return entries as valid JSON.
+Spusť Task subagenty paralelně. Každý subagent dostane seznam 8 PDF + tato pravidla.
+Každý vrátí JSON:
+```json
+{ "entries": [...], "skipped": [{ "path": "...", "reason": "..." }] }
+```
 
-### Phase 3 — Merge & Validate
+### Fáze 3 — Merge (upsert)
 
-- Collect all subagent results.
-- Final duplicate check across new batch (slug collision within new entries → skip second occurrence, log it).
-- Validate each entry: `id` present, `title` present, `folderId` in `{ceske, anglicke}`, `content` non-empty.
-- Drop invalid entries, log them.
+Pro každou novou entry:
+- Pokud existuje song se stejným `id` → **nahraď** ho
+- Jinak → přidej
+- Zachovej songs z existujícího songs.json, jejichž `id` neodpovídá žádnému PDF slug
 
-### Phase 4 — Commit & Push per Batch
+### Fáze 4 — Commit & push po každém batchi
 
-For each batch:
+```
+1. Zapiš src/data/songs.json (zachovat folders array, 2-space indent)
+2. npx tsc --noEmit   (musí projít; pokud ne, odstraň problematický entry a opakuj)
+3. git add src/data/songs.json
+4. git commit -m "reimport: N songs (batch X/Y)"
+5. git push
+```
 
-1. Append entries to `src/data/songs.json`'s `"songs"` array (preserve the `"folders"` array). Use 2-space indent.
-2. Run: `npx tsc --noEmit` — must succeed. If not, drop the broken entry and retry without it.
-3. `git add src/data/songs.json`
-4. `git commit -m "add: N songs from <folder> folder (batch X/Y)"`
-5. `git push`
-
-Do NOT wait for a full build between batches — TypeScript check is enough. Run `npm run build` only after ALL batches are done.
-
-**Final report:**
-- Total processed: N
-- Total skipped (scans): M — with file list
-- Total skipped (duplicates): K
-- Commits pushed: P
+Po všech batchích: `npm run build`
 
 ---
 
-## Example Entry (model your output after this)
+## Pravidla extrakce pro subagenty
 
+### 1. Čtení PDF
+
+```
+Read tool s parametrem pages: "1-6"
+```
+
+Pokud žádný text → skip s reason: `"scanned"`
+
+### 2. Detekce formátu zdroje
+
+| Co najdeš v textu | Formát |
+|---|---|
+| `"pisnicky-akordy.cz"` | **pisnicky-akordy** |
+| `"YouSongs.cz"` | **yousongs** |
+| `"ULTIMATE GUITAR COM"` | **ultimateguitar** |
+| `"kytaristka."` | **kytaristka** |
+| `"zpevnik.cz"` | **zpevnik** |
+| nic z výše uvedeného | **generic** |
+
+### 3. Ořez junk
+
+**Přeskoč na začátku dokud nenarazíš na první akordový nebo textový řádek:**
+- Řádky s URL (`https://`, `http://`, `www.`)
+- Timestamp řádky (např. `1/31/22, 7:33 PM Kabát - Malá dáma…`)
+- Čísla stránek samotná (`2/4`, `3/5`)
+- UltimateGuitar navigace: `"Tabs Shots Courses Articles Forums"`, `"ULTIMATE GUITAR COM"`, `"MORE VERSIONS"`, `"Ver 1 XXX"`, `"Official XXX"`
+- Metadata: `"Author …"`, `"views, added to favorites"`, `"last edit on"`, `"Difficulty:"`, `"Tuning:"`
+- Kytaristka intro popis (odstavec popisující obtížnost a výčet akordů)
+- Badge řádky: `"👍 Zkontrolováno"`, `"Zkontrolováno:"`
+
+**Zastav zpracování jakmile narazíš na:**
+- `"Akordy"` jako samostatný řádek (začátek sekce s vizuálními diagramy)
+- `"Kytara"` nebo `"Video"` samostatně
+- `"Vyšlo na albech"`, `"To se mi líbí"`, `"Sdílet"`, `"Zpět na začátek"`
+- `"© "` (copyright)
+- `"E A D G B E"` (popis strun u chord diagramů)
+- Řádky s `"(/diskografie/"` nebo `"Ad"` jako reklamní text
+
+**Zachovej zvlášť (nepiš do content, použij pro metadata):**
+- `Key: Bm` → `key` field
+- `Capo: 2nd fret` / `Capo: 2` / `KAPO 2` / `Capo 2. poloha` →
+  zapiš jako `"Capo 2"` jako **první řádek content**
+
+### 4. Česká normalizace akordů
+
+Aplikuj na **každý** akordový token před zápisem do content:
+
+```
+Sufixy (na konci):
+  mi   → m       (Ami→Am, Emi→Em, Hmi→Bm, Dmi→Dm, Fmi→Fm…)
+  mi7  → m7
+
+Kořenové noty (celý token):
+  H    → B        česky H = mezinárodně B natural
+  B    → Bb       česky B = mezinárodně Bb
+  Es   → Eb
+  As   → Ab
+  Cis  → C#
+  Dis  → D#
+  Fis  → F#
+  Gis  → G#
+  His  → C
+  Ais  → Bb
+```
+
+Příklady: `Hmi` → `Bm`, `Emi` → `Em`, `Es` → `Eb`, `Fis` → `F#`, `Dmi7` → `Dm7`
+
+### 5. Detekce typů řádků
+
+**Akordový řádek** — ≥ 65 % tokenů (split na mezery) jsou validní akordy:
+```
+/^[A-H][#b]?(mi|m|maj|min|aug|dim|sus|add|sus2|sus4|add9|maj7|m7|7)?[0-9]*(\/[A-H][#b]?)?$/
+```
+Platí i pro řádek s jediným akordem (`G`, `Am`, `F#m`…).
+
+**Textový řádek** — vše ostatní (i když začíná `1.`, `2.`, `R:`, `Ref.`…)
+
+**Prázdný řádek** — zachovej jako oddělovač slok (jeden prázdný řádek = konec sloky)
+
+### 6. Sloučení akordy-nad-textem (chord-above-lyric)
+
+```
+Když najdeš AKORDOVÝ ŘÁDEK těsně nad TEXTOVÝM ŘÁDKEM:
+
+  1. Extrahuj akordy s jejich sloupcovými pozicemi z akordového řádku
+     (pozice = index prvního znaku tokenu v řádku)
+  
+  2. Zkontroluj textový řádek na sekční prefix (viz sekci 7):
+     - Pokud prefix nalezen:
+         a. Přidej "[SekčníLabel]" jako samostatný výstupní řádek
+         b. Odstraň prefix z textu + trimni leading whitespace
+         c. Odečti délku prefixu od každé sloupcové pozice akordu
+            (pozice = max(0, chordCol - prefixLen))
+  
+  3. Vlož [Akord] markery do textu na odpovídajících pozicích:
+     pos = min(chordCol, lyricText.length)
+     result = lyric[0..pos] + "[Chord]" + lyric[pos..]
+  
+  4. Výsledný řádek: "[G]Ohořelou károu chtěl bych dojet ke [D]hvězdám,"
+
+Když AKORDOVÝ ŘÁDEK nemá pod sebou textový řádek (chord-only annotation):
+  → Výstup akordy jako "[C] [G] [Am]" na samostatném řádku
+
+Když ŘÁDEK obsahuje JAK akordové tokeny TAK text (PDF artefakt — sloučené řádky):
+  Příklad: "Ami Emi Ami R: Po tmě se toulá"
+  → Odděl leading akordové tokeny od zbytku
+  → Zbytek zpracuj jako textový řádek (včetně sekčního prefixu)
+  → Akordy vlož přibližně rovnoměrně do textu (odhadni pozice)
+```
+
+### 7. Normalizace sekčních prefixů
+
+Tyto vzory **na začátku textového řádku** převeď na header:
+
+```
+R:  / R.  / R.:  / Ref:  / Ref. / Ref.: / Refrén:     → [Refrén]
+1.  / 1.: / Sloka 1: / Verse 1:                        → [Sloka 1]
+2.  / 2.:                                               → [Sloka 2]
+3.  / 3.:  (atd.)                                       → [Sloka 3]
+Sbor:                                                   → [Sbor]
+Bridge: / Mezihra:                                      → [Bridge]
+Intro:                                                  → [Intro]
+Outro:  / Závěr:                                        → [Outro]
+Solo:                                                   → [Solo]
+*:  (hvězdička s dvojtečkou)                            → [Outro]
+```
+
+Sekční řádky **bez textu za nimi** → také `[SekčníLabel]` header.
+
+**UltimateGuitar brackety** — zachovej přesně tak jak jsou:
+`[Verse]`, `[Verse 1]`, `[Chorus]`, `[Bridge]`, `[Intro]`, `[Outro]`,
+`[Pre-Chorus]`, `[Interlude]`, `[Solo]` atd.
+
+### 8. Slug z názvu souboru
+
+```
+Vstup: "Wanastowi Vjecy - Otevřená zlomenina srdečního svalu [text a akordy na YouSongs.cz].pdf"
+
+1. Odstraň .pdf
+2. Odstraň vše v hranatých závorkách: [...] → ""
+3. Trimni
+4. Rozděl na první " - " → artist + title
+   (pokud " - " neexistuje: artist = "", title = celý název)
+5. Pro každou část zvlášť:
+     a. NFD normalize (String.normalize("NFD"))
+     b. Odstraň combining diacritics (/[̀-ͯ]/g)
+     c. Lowercase
+     d. Nahraď mezery a speciální znaky za "-"
+     e. Odstraň non-[a-z0-9-] znaky
+     f. Nahraď více pomlček za jednu (-+  → -)
+     g. Trimni pomlčky na krajích
+6. Slug: "{artist-slug}-{title-slug}", max 70 znaků
+
+Příklad:
+  artist: "Wanastowi Vjecy" → "wanastowi-vjecy"
+  title:  "Otevřená zlomenina srdečního svalu" → "otevrena-zlomenina-srdecniho-svalu"
+  slug:   "wanastowi-vjecy-otevrena-zlomenina-srdecniho-svalu"
+```
+
+### 9. Klíč (key field)
+
+Priorita:
+1. `Key: Bm` z UltimateGuitar hlavičky (za capo, tj. jak je napsáno)
+2. První akord v content (po normalizaci)
+3. `""` pokud žádné akordy
+
+---
+
+## Příklad vstupu a výstupu
+
+**Vstup (PDF text, YouSongs.cz formát):**
+```
+        G              D
+Ref: Ohořelou károu chtěl bych dojet ke hvězdám,
+         Ami              C
+     který svítily z tvejch očí dřív než červotoči
+         F         D
+     se do tvýho srdce daj, hm hm
+```
+
+**Výstup (content v songs.json):**
+```
+[Refrén]
+[G]Ohořelou károu chtěl bych dojet ke [D]hvězdám,
+[Am]který svítily z tvejch očí dřív než červotoči
+[F]se do tvýho srdce daj, [D]hm hm
+```
+
+**Vstup (UltimateGuitar formát):**
+```
+Key: Bm
+Capo: 2nd fret
+
+[Verse]
+G Em
+I found a love for me
+C D
+Darling, just dive right in
+```
+
+**Výstup:**
 ```json
 {
-  "id": "divka-s-perlami-ve-vlasech",
-  "title": "Dívka s perlami ve vlasech",
-  "artist": "Aleš Brichta",
-  "folderId": "ceske",
-  "key": "Em",
-  "content": "[Em]Zas mě tu [D]máš, [Am]nějak se [Em]mračíš\n[Em]vybledlej [D]smích už ve [Am]dveřích.[Em]\n\nR: [G]No tak lásko, [D]co chceš mi říct\n[Am]máš už perly možná i [Em]víc"
+  "key": "Bm",
+  "content": "Capo 2\n\n[Verse]\n[G]I found a love for [Em]me\n[C]Darling, just dive right [D]in"
 }
 ```
 
 ---
 
-## Start Now
+## Pravidla pro sestavení výsledné entry
 
-Begin with **Phase 1** (inventory) and report the counts before launching subagents.
+```json
+{
+  "id": "<slug z názvu souboru>",
+  "title": "<title z názvu souboru, s diakritikou, přesně>",
+  "artist": "<artist z názvu souboru, s diakritikou, přesně>",
+  "folderId": "ceske" nebo "anglicke",
+  "key": "<viz sekci 9>",
+  "content": "<celý text písničky s inline [Akord]markery>"
+}
+```
+
+---
+
+## Začni nyní
+
+**Fáze 1:** Proveď inventory, reportuj počty. Čekej na souhlas pokud > 120 PDF.
