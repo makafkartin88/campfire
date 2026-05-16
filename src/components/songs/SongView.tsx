@@ -36,16 +36,23 @@ export function SongView({ song, showDiagrams = true, fontSize = 16 }: Props) {
 
       {/* Chord diagrams toggle */}
       {lines.some((l) => l.chords.length > 0) && (
-        <div className="mb-4">
+        <div className="mb-6">
           <button
             onClick={() => setDiagramsOpen((o) => !o)}
-            className="text-xs text-stone-500 hover:text-stone-300 transition-colors flex items-center gap-1"
+            className="flex items-center gap-1.5 text-xs text-stone-500 hover:text-fire-400 transition-colors group"
           >
-            <span>{diagramsOpen ? '▼' : '▶'}</span>
+            <svg
+              width="10" height="10" viewBox="0 0 10 10"
+              className={`transition-transform duration-200 ${diagramsOpen ? 'rotate-90' : ''}`}
+              fill="currentColor"
+            >
+              <path d="M3 1.5 L7.5 5 L3 8.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
             <span>{diagramsOpen ? 'Skrýt diagramy' : 'Zobrazit diagramy akordů'}</span>
           </button>
+
           {diagramsOpen && (
-            <div className="mt-3 p-4 bg-stone-900 rounded-lg border border-stone-800">
+            <div className="mt-5 border-t border-stone-800 pt-5">
               <ChordDiagramBar content={song.content} transposeOffset={transposeOffset} />
             </div>
           )}

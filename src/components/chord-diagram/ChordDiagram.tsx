@@ -8,6 +8,9 @@ interface Props {
 
 const W = 70
 const H = 90
+const SCALE = 1.45          // render diagrams ~45 % larger
+const SVG_W = W * SCALE
+const SVG_H = (H + 14) * SCALE
 const STRING_COUNT = 6
 const FRET_COUNT = 4
 const LEFT = 14
@@ -25,7 +28,7 @@ function DiagramSvg({ name, pos }: { name: string; pos: ChordPosition }) {
   const fy = (fret: number) => TOP + (fret - 0.5) * FRET_GAP
 
   return (
-    <svg width={W} height={H + 14} viewBox={`0 0 ${W} ${H + 14}`} className="flex-shrink-0">
+    <svg width={SVG_W} height={SVG_H} viewBox={`0 0 ${W} ${H + 14}`} className="flex-shrink-0">
       {/* Chord name */}
       <text x={W / 2} y={11} textAnchor="middle" fontSize={9} fontWeight="600" fill="#fb923c" fontFamily="monospace">
         {name}
@@ -114,7 +117,7 @@ function DiagramSvg({ name, pos }: { name: string; pos: ChordPosition }) {
 
 function FallbackSvg({ name }: { name: string }) {
   return (
-    <svg width={W} height={H + 14} viewBox={`0 0 ${W} ${H + 14}`} className="flex-shrink-0">
+    <svg width={SVG_W} height={SVG_H} viewBox={`0 0 ${W} ${H + 14}`} className="flex-shrink-0">
       <text x={W / 2} y={11} textAnchor="middle" fontSize={9} fontWeight="600" fill="#fb923c" fontFamily="monospace">
         {name}
       </text>
@@ -147,7 +150,7 @@ export function ChordDiagram({ name }: Props) {
   }, [name])
 
   if (!loaded) {
-    return <div style={{ width: W, height: H + 14 }} className="flex-shrink-0" />
+    return <div style={{ width: SVG_W, height: SVG_H }} className="flex-shrink-0" />
   }
 
   if (!pos) return <FallbackSvg name={name} />

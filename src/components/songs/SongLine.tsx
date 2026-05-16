@@ -59,25 +59,33 @@ export function SongLine({ line, fontSize }: Props) {
       className="chord-mixed-line text-stone-200"
       style={{ fontSize, lineHeight: 1.5 }}
     >
-      {segments.map((seg, i) => (
-        <span
-          key={i}
-          style={{
-            display: 'inline-flex',
-            flexDirection: 'column',
-            verticalAlign: 'top',
-            whiteSpace: 'pre',
-          }}
-        >
+      {segments.map((seg, i) => {
+        // When a chord sits above empty/whitespace-only text (e.g. two chords in a row
+        // with nothing between them, or a chord at position 0 before any lyrics), the
+        // inline-flex column collapses to just the chord-name width and the next chord
+        // appears glued. Pad right so adjacent chords always breathe.
+        const emptyText = seg.chord !== undefined && seg.text.trim() === ''
+        return (
           <span
-            className="text-fire-400 font-mono font-bold"
-            style={{ fontSize: fontSize * 0.78, lineHeight: 1.2, minHeight: '1.2em' }}
+            key={i}
+            style={{
+              display: 'inline-flex',
+              flexDirection: 'column',
+              verticalAlign: 'top',
+              whiteSpace: 'pre',
+              paddingRight: emptyText ? '0.55em' : 0,
+            }}
           >
-            {seg.chord ?? ' '}
+            <span
+              className="text-fire-400 font-mono font-bold"
+              style={{ fontSize: fontSize * 0.78, lineHeight: 1.2, minHeight: '1.2em' }}
+            >
+              {seg.chord ?? ' '}
+            </span>
+            <span style={{ lineHeight: 1.4 }}>{seg.text}</span>
           </span>
-          <span style={{ lineHeight: 1.4 }}>{seg.text}</span>
-        </span>
-      ))}
+        )
+      })}
     </div>
   )
 }

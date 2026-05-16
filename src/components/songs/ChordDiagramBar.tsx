@@ -15,9 +15,18 @@ export function ChordDiagramBar({ content, transposeOffset }: Props) {
   if (chords.length === 0) return null
 
   return (
-    <div className="mb-6">
-      <p className="text-xs text-stone-500 uppercase tracking-wider mb-3">Akordy</p>
-      <div className="flex flex-wrap gap-4">
+    <div>
+      {/* Centered divider label */}
+      <div className="flex items-center gap-3 mb-5">
+        <div className="h-px flex-1 bg-stone-700/60" />
+        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-stone-500 select-none">
+          Akordy
+        </span>
+        <div className="h-px flex-1 bg-stone-700/60" />
+      </div>
+
+      {/* Diagrams */}
+      <div className="flex flex-wrap gap-x-5 gap-y-4">
         {chords.map((chord) => (
           <ChordDiagram key={chord} name={chord} />
         ))}
