@@ -22,11 +22,25 @@ const SUFFIX_ALIASES: Record<string, string> = {
   m: 'minor',
   min: 'minor',
   mi: 'minor',
+  dur: 'major',   // Czech "dur" = major
+  mol: 'minor',   // Czech "mol" = minor
 }
 
-// Czech "H" = English "B", Czech "B" = English "Bb"
+// Czech "H" = English "B".
+// Enharmonic equivalents — the DB uses one specific spelling per note:
+//   C# (not Db), Eb (not D#), F# (not Gb), Ab (not G#), Bb (not A#)
 const KEY_ALIASES: Record<string, string> = {
   H: 'B',
+  Db: 'C#',
+  'D#': 'Eb',
+  Gb: 'F#',
+  'G#': 'Ab',
+  'A#': 'Bb',
+  // Theoretical / rare but included for safety
+  Cb: 'B',
+  'E#': 'F',
+  'B#': 'C',
+  Fb: 'E',
 }
 
 function parseChordName(name: string): { key: string; suffix: string } {
