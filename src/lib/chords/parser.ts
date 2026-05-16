@@ -33,8 +33,52 @@ export function parseLine(raw: string): ParsedLine {
   }
 }
 
+// Czech and generic section prefixes that may appear inline before chord+lyric content.
+// e.g. "R: [G]Jožin z bažin..." → synthetic [Refrén] header + parsed lyric line
+const INLINE_SECTION_PREFIX =
+  /^((?:Ref(?:rén)?|R)\s*\.?:?|(?:\d+\.\s*)?(?:sloka|verse|chorus|bridge|intro|outro|mezihra|c-část|b-část))\s*:?\s+/i
+
+const SECTION_PREFIX_LABEL: Record<string, string> = {
+  r: 'Refrén',
+  ref: 'Refrén',
+  refrén: 'Refrén',
+  refren: 'Refrén',
+  chorus: 'Chorus',
+  verse: 'Verse',
+  bridge: 'Bridge',
+  intro: 'Intro',
+  outro: 'Outro',
+  mezihra: 'Mezihra',
+}
+
+function normalizeLabel(raw: string): string {
+  const key = raw
+    .toLowerCase()
+    .replace(/[.:0-9\s]/g, '')
+    .trim()
+  return SECTION_PREFIX_LABEL[key] ?? raw.replace(/[:.]\s*$/, '').trim()
+}
+
 export function parseSong(content: string): ParsedLine[] {
-  return content.split('\n').map(parseLine)
+  const result: ParsedLine[] = []
+
+  for (const rawLine of content.split('\n')) {
+    const m = rawLine.match(INLINE_SECTION_PREFIX)
+    if (m) {
+      const remainder = rawLine.slice(m[0].length)
+      // Only split when there's actual content after the prefix (not just whitespace/chords-only blank)
+      if (remainder.trim()) {
+        const label = normalizeLabel(m[1])
+        // Synthetic section-header line (isSectionLine recognises [X] pattern)
+        result.push({ lyrics: `[${label}]`, chords: [], isChordOnly: false, isEmpty: false })
+        result.push(parseLine(remainder))
+        continue
+      }
+    }
+    result.push(parseLine(rawLine))
+  }
+
+  return result
 }
 
 export function extractUniqueChords(content: string): string[] {
