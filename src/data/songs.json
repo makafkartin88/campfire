@@ -1,16 +1,1318 @@
 {
   "folders": [
-    { "id": "anglicke", "name": "Anglické" },
-    { "id": "ceske", "name": "České" }
+    {
+      "id": "anglicke",
+      "name": "Anglické"
+    },
+    {
+      "id": "ceske",
+      "name": "České"
+    }
   ],
   "songs": [
     {
-      "id": "divka-s-perlami-ve-vlasech",
+      "id": "ales-brichta-divka-s-perlami-ve-vlasech",
       "title": "Dívka s perlami ve vlasech",
       "artist": "Aleš Brichta",
       "folderId": "ceske",
       "key": "Em",
-      "content": "[Em]Zas mě tu [D]máš, [Am]nějak se [Em]mračíš\n[Em]vybledlej [D]smích už ve [Am]dveřích.[Em]\n[Em]S čelenkou z [D]perel [Am]svatozář [Em]ztrácíš\n[Em]kolik se [D]platí za [Am]vláčnej [Em]hřích.\n\nR: [G]No tak lásko, [D]co chceš mi říct\n[Am]máš už perly možná i [Em]víc\n[G]lásko na [D]co se ptáš, [Am]svíčku za[Em]hasínáš.\n[G]Nemám lásko [D]co bych ti dal,\n[Am]chtělas' všechno, nebyl jsem [Em]král\n[G]lásko na [D]co se ptáš, [Am]perly ve vlasech [Em]máš.\n\n[Em]Tvý horky [D]rty, víc [Am]radši [Em]ne,\n[Em]nejsou už [D]mý, [Am]nejsi má [Em]Cher.\n[Em]Něco snad [D]chápu, [Am]to ne, to [Em]ne,\n[Em]bolí to, [D]hořím, jak [Am]černej [Em]tér.\n\nR2: [G]No tak lásko, [D]kdo mi tě vzal,\n[Am]komus dala tělo i [Em]duši,\n[G]lásko na [D]co je pláč, [Am]když to skončit [Em]má.\n[G]Vždyť už lásko, [D]svý perly máš\n[Am]tak proč padaj měněj se v [Em]slzy,\n[G]lásko na [D]co je pláč, [Am]perly ve vlasech [Em]máš.\n\n[Em]Chtěla jsi [D]víc pro [Am]svoje [Em]touhy,\n[Em]já chudej [D]princ, [Am]mám jen co [Em]mám\n[Em]Co vlastně [D]zbývá [Am]jen slzy [Em]pouhý\n[Em]ze svatebních [D]zvonů, z [Am]nebeskejch [Em]bran.\n\nR1 + R2 (na konci)"
+      "content": "[Em]Zas mě tu máš, [D]nějak se [Am]mračíš [Em]\nvybledlej smích [D]už ve dve[Am]řích. [Em]\n[Em]S čelenkou z perel [D]svatozář [Am]ztrácíš [Em]\nkolik se platí [D]za vláčnej [Am]hřích. [Em]\n\n[G]No tak lásko, [D]co chceš mi říct\n[Am]máš už perly [Em]možná i víc\n[G]lásko na co se [D]ptáš, [Am]svíčku zhasí[Em]náš.\n[G]Nemám lásko [D]co bych ti dal,\n[Am]chtělas' všechno, [Em]nebyl jsem král\n[G]lásko na co se [D]ptáš, [Am]perly ve vlasech [Em]máš.\n\n[Em]Tvý horky rty, [D]víc radši [Am]ne, [Em]\nnejsou už mý, [D]nejsi má [Am]Cher. [Em]\n[Em]Něco snad chápu, [D]to ne, to [Am]ne, [Em]\nbolí to, hořím, [D]jak černej [Am]tér. [Em]\n\n[G]No tak lásko, [D]kdo mi tě vzal,\n[Am]komus dala [Em]tělo i duši,\n[G]lásko na co je [D]pláč, [Am]když to skončit [Em]má.\n[G]Vždyť už lásko, [D]svý perly máš\n[Am]tak proč padaj [Em]měněj se v slzy,\n[G]lásko na co je [D]pláč, [Am]perly ve vlasech [Em]máš."
+    },
+    {
+      "id": "chinaski-dobrak-od-kosti",
+      "title": "Dobrák od kosti",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "Capo 1\n\n[D]Má milá jak ti je, [A]tak jak ti [G]je?\n[D]Jsem ten, kdo jednou [A]tvý tělo za[G]kryje.\n[D]Jsem ten, kdo tě [A]jednou oddě[G]lá.\n[D]Potkala's zkrátka [A]koho's ne[G]měla.\n[D]Jsi budoucí krev [A]v mojí pos[G]teli\n[D]Jsem ten, kdo tě jednou [A]jistojistě za[G]střelí [C]\n[D]Jsem ten kdo ty tvoje [A]krásný oči jednou zat[G]lačí\n[D]jsi moje všechno a [A]mě to nesta[G]čí\n\n[D]Je to vážně silná káva,\n[A]pláč a nebo vztek [G]nic už s tím nenaděláš\n[D]nech mě jenom hádat,\n[A]jak jsi hebká na dotek [G]krásná a nedospělá\n\n[D]Víš, všechno má aspoň [A]malý kaz [G]\n[D]jsem ten, kdo ti jednou [A]zlomí vaz [G] [C]\n[D]Má milá vždyť mě znáš [A]jsem dobrák od [G]kosti\n[D]a ty jsi ta co mi to [A]jednou všechno od[G]pustí"
+    },
+    {
+      "id": "chinaski-drobna-paralela",
+      "title": "Drobná paralela",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Ta stará dobrá hra [G]je okoukaná. [D]\n[C]Nediv se brácho, [G]kdekdo ji zná. [D]\n[C]Přestaň se ptát, [G]bylo nebylo líp. [D]\n[C]Včera je včera, [G]bohužel bohudík. [D]\n\n[C]Nic není jako dřív, [G]nic není jak bej[D]vávalo. [Em]\n[C]Nic není jako dřív, [G]to se nám to mí[D]vávalo. [Em]\n[C]Nic není jako dřív, [G]ačkoliv máš všechno co si vždycky [D]chtěla. [Em]\n[C]Nic není jako dřív, [G]ačkoliv drobná paralela by tu [D]byla. [Em]\n\n[C]Promlouvám k vám ústy [G]múzy,\n[D]vzývám tón a lehkou [Em]chůzi,\n[C]vzývám zítřek nena[G]dálý,\n[D]odplouvám a [Em]mizím."
+    },
+    {
+      "id": "chinaski-kazdy-rano",
+      "title": "Každý ráno",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "KAPO 5\n\n[C]Každý ráno když si vzpomenu,\n[B]vzpomenu si na to [F]jak měl jsem tě rád [C]\na nevzal si tě za ženu, [G]každý ráno, [B]budu si vy[F]čítat. [C]\n[C]Jak to bylo zbabělé,\n[B]když jsem na svý cestě, [F]nezdvihl tvůj drahokam [C]\na od tý doby od čerta k ďáblu, [G]se po tý cestě [B]potloukám. [F] [C] [D]\n\n[Em]Lásko, jediná, [D]lásko... [C] [D] [Em] [D] [C]\n[G]Každý ráno když si vzpomenu, vzpomenu si na to, [D]jak měl jsem tě rád [F] [C] [G]\n[G]a nevzal si tě za ženu, každý ráno, [D]budu se pro[F]klínat [C] [G]"
+    },
+    {
+      "id": "chinaski-prvni-signalni",
+      "title": "První signální",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Až si zejtra ráno řeknu zase jednou pro[G]vždy dost, [C] [Em]\n[G]právem se mi budeš tiše smát. [C] [Em]\n[G]Jak omluvit si svoji slabost, nenávist a [C]zlost, [Em]\n[G]když za všechno si můžu vlastně sám. [C] [Em]\n\n[Am]Za spoustu dní, možná za spoustu let, [C]\n[G]až se mi rozední, budu ti vyprávět, [D]\n[Am]na první signální, jak jsem vobletěl svět, [C]\n[G]jak tě to vomámí a nepustí zpět. [D]\n[F]Jaký si to uděláš - takový to máš, [B] [Dm]\n[F]jaký si to uděláš - takový to máš. [B] [Dm]"
+    },
+    {
+      "id": "chinaski-slovensky-klin",
+      "title": "Slovenský klín",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Potkal jsem tě jednou na ulici v Blavě [Bm]\n[G]byla noc a měli jsme už trochu v hlavě [D]\n[Bm]cítila som to zrazu hneď poprvé [A]\n[G]ty a já jsme stejní oba dva jedné krve. [D]\n\n[A]Najednou zatoužil jsem být jak vlajka česká [Bm]\n[G]ja v tvojich dlaniach mäknem ako o Vianociach cin [A]\n[Bm]každá česká vlajka má slovenský klín. [G]\n\n[G]Sme obaja takmer to isté [D] [Bm]\n[Bm]tak si přečti co máš v rodným listě [G] [D]\n[D]sme obaja, ty i ja [Bm] [A]\n[G]Made in Czechoslovakia. [D]"
+    },
+    {
+      "id": "chinaski-tabacek",
+      "title": "Tabáček",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Haló, kdo je tam, po zaznění tónu\n[G]zanechte zprávy a buďte zdrávi [A]\n[D]haló, nejsem doma, no je to fakt bída\n[G]volané číslo vám neodpovídá [A]\n\n[Em]Polevím z vysokejch otáček [A]\n[D]pohoda, klídek a tabáček [Bm]\n[Em]půl dne noviny číst a pak cigáro [A]\n[D]pohoda klídek leháro [Bm]\n[Em]nejspíš jsem jenom línej čím dál víc [A] [D]"
+    },
+    {
+      "id": "chinaski-venku-je-na-nule",
+      "title": "Venku je na nule",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "Capo III\n\n[Em]Odbila celá, bylo čtvrt a bude půl, [C] [D] [A]\n[Em]macatý měsíc po nebi plul. [C] [D] [A]\nA kolem něj tančily hvězdy\na kolem nich hluboký vesmír.\n\n[Em]Venku je na nule, milujem minulé, [C]\n[G]tak nějak zdánlivě tady žijem. [D]\nVenku je na nule, milujem minulé,\nsvůj klid a stálý příjem.\n\n[Em]Je šedivé sychravo, [C]\n[D]údolí tiše zalehl chlad. [A]\n[Em]Po zemi táhne se lezavá zima. [C] [D] [A]"
+    },
+    {
+      "id": "chinaski-vino",
+      "title": "Víno",
+      "artist": "Chinaski",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Zase je pátek a mám toho dost [A]\n[C]tak beru kramle, za zády Černý most. [G]\n[D]A pokud mi to D1 dovolí [A]\n[C]než minu Jihlavu, hodím Prahu za hlavu. [G]\n\n[D]My máme rádi víno, milujeme krásné ženy a zpěv. [A] [C] [G]\n[D]A na věc jdeme přímo, v žilách nám proudí moravská krev. [A] [C] [G]"
+    },
+    {
+      "id": "fleret-zafukane",
+      "title": "Zafúkané",
+      "artist": "Fleret",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "Capo 4\n\n[Am]Větr sněh za[C]nésl z hor do [G]polí, [Am]\njá idu přes [C]kopce, přes [G]údolí, [Am]\nidu k tvej dědině za[C]túlanej,\n[F]cestičky [C]sněhem [E]sú zafú[Am]kané.\n\n[Am]Zafúkané, za[C]fúkané, ko[G]lem mňa [C]všecko je za[F]fúkané. [C] [Dm] [E]\n[Am]Zafúkané, za[C]fúkané, ko[G]lem mňa [C]všecko je za[F]fúkané. [C] [E] [Am]"
+    },
+    {
+      "id": "helena-vondrackova-sladke-mameni",
+      "title": "Sladké mámení",
+      "artist": "Helena Vondráčková",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Sladké mámení, chvíle [D]závrátí,\n[D7]střípky zázraků, které [C]čas už ne[G]vrátí.\n[G]Sladké mámení, dálek [D]lákavých,\n[D7]vůně snů těch starých snů [C]nád[D]herných. [G]\n\n[D]Léta tryskem pádí, čas nikoho příliš ne[C]šetří,\n[D]rychle k městu zády nebo jako v mládí na Pet[G]řín,\n[D]žádné jízdní řády, žádný shon a žádné zá[Am]větří,\n[C]vytáhnout z tajných skrýší sny,\n[D]ten starý song po[D7]řád nejlíp zní."
+    },
+    {
+      "id": "helena-vondrackova-cervena-reka",
+      "title": "Červená řeka",
+      "artist": "Helena Vondráčková",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Pod tou skálou, kde [D7]proud [G]řeky syčí\na kde [D]ční červený ka[B7]mení, [Em] [A7]\n[D]žije ten, co mi [D7]jen srdce [G]ničí,\nkoho [D]já ráda mám k [A7]zbláznění. [D]\n\nVím, že lásku jak trám lehce slíbí,\nja ho znám, srdce má děravý,\nale já ho chci mít, mně se líbí,\nbez něj žít už mě dál nebaví."
+    },
+    {
+      "id": "ivan-hlas-na-kolena",
+      "title": "Na kolena",
+      "artist": "Ivan Hlas",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Táhněte do háje, všichni [Am]pryč,\n[C]chtěl jsem jít do ráje a nemám [Am]klíč,\n[C]jak si tu můžete takhle [Am]žrát,\n[F]ztratil jsem holku, co ji mám [G]rád.\n\n[F]Pořád jen na kolena, na kolena, [C]jé jé jé,\n[F]pořád jen na kolena, na kolena, [C]jé jé jé,\n[F]pořád jen na kolena, na kolena, [C]je to [Am]tak,\n[F]a vaše saka vám posere [G]pták."
+    },
+    {
+      "id": "ivan-mladek-jozin-z-bazin",
+      "title": "Jožin z bažin",
+      "artist": "Ivan Mládek",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Jedu takhle tábořit Škodou 100 na O[B7]ravu, [Em]\nspěchám proto, riskuji, projíždím přes Mo[B7]ravu. [Em]\n[D7]Řádí tam to strašidlo, vy[G]stupuje z ba[D7]žin, [G] [B7]\n[Em]žere hlavně Pražáky, jmenuje se Jo-[B7]žin. [Em] [D7]\n\n[G]Jožin z bažin moč[Gdim]álem se [D7]plíží,\n[G]Jožin z bažin k vesnici se blíží,\n[Gdim]Jožin z bažin už si [D7]zuby brousí,\n[G]Jožin z bažin kouše, saje, rdousí.\n[C]Na Jožina z bažin, [G]koho by to na[D]padlo, [G]\n[C]platí jen a pouze [G]práškovací le[D]tadlo. [G] [B7] [Em]"
+    },
+    {
+      "id": "janek-ledecky-na-ptaky-jsme-kratky",
+      "title": "Na ptáky jsme krátký",
+      "artist": "Janek Ledecký",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Na ptáky jsme krátký, [D]\n[Em]na ptáky jsme malý [C]páky,\n[G]je to tak, to my si [D]dáme na zo[G]bák.\n\n[G]V patnácti s tvrdým cigárem,\n[A]říkal jsem si: aspoň trochu zestárnem,\n[C]z plnejch plic a [Em]pak už se mnou [D]nebylo [G]nic.\n\n[Em]Kdekdo by chtěl lítat ke [C]hvězdám, [G]\n[Em]každej na to musí při[C]jít sám, [D]\n[F]jen sám, jen [C]sám, jen [D]sám."
+    },
+    {
+      "id": "janek-ledecky-proklinam",
+      "title": "Proklínám",
+      "artist": "Janek Ledecký",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Prázdej byt je jako past, kde rů[F]že uva[Dm]dnou, [C] [G]\n[Am]potisící čtu tvůj dopis na roz[F]loučenou, [Dm] [G]\n[C]píšeš, že odcházíš, když den se s [Am]nocí střídá, [Dm] [C] [G]\n[Am]vodu z vína udělá, kdo dobře ne[F]hlídá. [Dm] [G]\n\n[C]Píšeš: Proklínám, ty tvoje [G]ústa pro[Am]klínám, [F] [C]\n[G]tvoje oči ledový, v srdci jen [Am]sníh, [F]\n[C]sám a sám, ať nikdy [G]úsvit ne[Am]spatříš, [F] [C]\n[G]na ústa mříž, oči oslepnou, ať do smrti seš [Am]sám. [F] [C]"
+    },
+    {
+      "id": "jaromir-nohavica-dokud-se-zpiva",
+      "title": "Dokud se zpívá",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Z Těšína vyjíždí vlaky co čtvrt[Em]hodinu, [Dm7] [F] [C] [Em] [Dm7] [G]\n[C]včera jsem nespal a ani dnes nespo[Em]činu, [Dm7] [F] [C] [Em] [Dm7] [G]\n[F]svatý Medard, můj patron, ťuká si na [G]čelo, [C] [Am] [G]\n[F]ale dokud se zpívá, ještě se u[G]mřelo. [F] [G] [C]\n\nVe stánku koupím si housku a slané tyčky,\nsrdce mám pro lásku a hlavu pro písničky,\nze školy dobře vím, co by se dělat mělo,\nale dokud se zpívá, ještě se neumřelo."
+    },
+    {
+      "id": "jaromir-nohavica-hlidac-krav",
+      "title": "Hlídač krav",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Když jsem byl malý, říkali mi naši:\n\"Dobře se uč a jez chytrou kaši,\n[F]až jednou vyrosteš, budeš doktorem [G]práv, [C]\n\"\nja jim ale na to řek':\"Chci být hlídačem [G]krav.\" [C]\n\n[C]Já chci mít čapku s bambulí nahoře,\njíst kaštany a mýt se v lavoře,\n[F]od rána po celý den zpívat si [G]jen, [C]\n[F]zpívat si: pam pam pam ... [G] [C]"
+    },
+    {
+      "id": "jaromir-nohavica-kdyz-me-brali-za-vojaka",
+      "title": "Když mě brali za vojáka",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Když mě brali za vojáka, stříhali mě do[C]hola, [G] [C]\n[Dm]vypadal jsem jako [Am]blbec,\n[E]jak ti všichni doko[F]la, -la, -[G]la, -[C]la, [G]\n[Am]jak ti všichni doko[E]la. [Am]\n\nZavřeli mě do kasáren, začali mě učiti,\njak mám správný voják býti\na svou zemi chrániti, -ti, -ti, -ti,\na svou zemi chrániti."
+    },
+    {
+      "id": "jaromir-nohavica-kometa",
+      "title": "Kometa",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Spatřil jsem kometu, oblohou letěla,\n[Dm]chtěl jsem jí zazpívat, ona mi zmizela,\n[Dm]zmizela jako laň u lesa v remízku,\n[C]v očích mi zbylo jen pár žlutých penízků.\n\n[Refrén]\n[Am]O vodě, o trávě, o [Dm]lese,\n[G7]o smrti, se kterou smířit nejde [C]se, [E7]\n[Am]o lásce, o zradě, o [Dm]světě\n[E]a o všech lidech, co kdy žili na téhle [Am]planetě."
+    },
+    {
+      "id": "jaromir-nohavica-kozel",
+      "title": "Kozel",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Byl jeden pán, ten kozla [C]měl,\n[D]velice si s ním rozu[G]měl,\n[G]měl ho moc rád, opravdu [C]moc,\n[D]hladil mu fous na dobrou [G]noc.\n\n[G]Jednoho dne se kozel [C]splet',\n[D]rudé tričko pánovi sně[G]d',\n[G]jak to pán zřel, zařval [C]\"jéjé\",\n[D]svázal kozla na kole[G]je.\n\n[G]Zahoukal vlak, kozel se [C]lek':\n[D]\"to je má smrt\", mečel [G]\"mek, mek\",\n[G]jak tak mečel, vykašlal [C]pak\n[D]rudé tričko, čímž stopnul [G]vlak."
+    },
+    {
+      "id": "jaromir-nohavica-minulost",
+      "title": "Minulost",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Jako když k půlnoci na dveře zaklepe nezvaný host\n[Em]stejně tak na tebe za rohem čeká tvoje [A]minulost\nšaty má tytéž, vlasy má tytéž, a boty kožené\npomalu kulhavě za tebou pajdá, až tě dožene\na řekne\n\n[D]Tak mě tu máš, tak si mě [A]zvaž\n[Em]pozvi mě dál, jestli mě znáš, jsem tvoje [D]minulost"
+    },
+    {
+      "id": "jaromir-nohavica-mam-jizvu-na-rtu",
+      "title": "Mám jizvu na rtu",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Jsem příliš starý na to abych věřil v revoluci\n[G]a svoji velkou hlavu těžko skryju pod kapucí\n[Am]a nechutná mi když se vaří předvařená [F]rýže,\n[C]v náprsní kapse nosím Ventinol na [G]potíže.\n[Dm]A kdyby se někdo z vás na anděla [F]ptal,\n[C]tak mám jizvu na rtu, když při mně [G]stál. [C] [G] [F] [G]"
+    },
+    {
+      "id": "jaromir-nohavica-pane-prezidente",
+      "title": "Pane prezidente",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Pane prezidente, ústavní [Em]činiteli,\n[A7]píšu vám dopis, že moje děti na mě zapo[D]mněly,\n\n[G]Vy to pochopíte, vy přece všechno [Am]víte,\n[D7]vy se poradíte, vy to vyřešíte, vy mě zachrá[G]níte.\n[G]Pane prezidente, já chci jen kousek [Am]štěstí,\n[D7]pro co jiného jsme přeci zvonili klíčema na [G]náměstí. [A]"
+    },
+    {
+      "id": "jaromir-nohavica-pijte-vodu",
+      "title": "Pijte vodu",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Pijte vodu, pijte pitnou vodu, pijte vodu a ne[G]pijte rum!\n\n[C]Jeden smutný ajznboňák pil na pátém nástupišti ajrkoňak.\n[C]Huba se mu slepila diese[G]llokomotiva ho zabila. [C]\n\nPijte vodu, pijte pitnou vodu, pijte vodu a nepijte rum!"
+    },
+    {
+      "id": "jaromir-nohavica-tri-cunici",
+      "title": "Tři čuníci",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]V řadě za sebou tři čuníci jdou,\n[Am]ťápají si v blátě cestou-necestou,\n[Dm]kufry nemají, cestu neznají,\n[Dm]vyšli prostě do světa a vesele si zpívají: uí uí uí ...\n\nAuta jezdí tam, náklaďáky sem,\ntři čuníci jdou, jdou rovnou za nosem,\nušima bimbají, žito křoupají,\nvyšli prostě do světa a vesele si zpívají: uí uí uí ..."
+    },
+    {
+      "id": "jaromir-nohavica-u-nas-na-severu",
+      "title": "U nás na severu",
+      "artist": "Jaromír Nohavica",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]V Bělském lese toulají se mamuti\n[G]když je ne o solíš, tak jsou bez chuti\n[Am]nevěřil bys, kolik to dá roboty\n[Em]zavařovat na kyselo choboty\n\n[Am]Ďura světa v každém směru\n[Em]co si myslíš, na to seru\n[B7]nemluv, bo mě mory beru\n[Em]tak se žije tady na severu\n[Am]Větry fučí ze všech směrů\n[Em]když není máslo, jíme Heru\n[B7]furt dva metry od maléru\n[Em]tak se žije tu u nás"
+    },
+    {
+      "id": "kabat-burlaci",
+      "title": "Burlaci",
+      "artist": "Kabát",
+      "folderId": "ceske",
+      "key": "Dm",
+      "content": "[Dm]Konopný lana, tak ty už něco vydrží,\n[Am]zkaženej dech a čtyry deci pod kůží,\n[Am]nebe rudý, břízy brzo pokvetou\n[Bb]a chlapi z nudy, baví se ruskou ruletou.\n[Bb]Když svoje lodě proti proudu táhnou,\n[Bb]navzdory všem kamenům,\n[Dm]proč jenom touhy po čase vadnou.\n\n[C]Nebe je temný a mnohem [Dm]níž,\n[Bb]jen vlků dávnej chorál z [F]hor,\n[C]a já tu marně hledám [Dm]skrýš,\n[Bb]když cesta rovná se nám [F]ztrácí,\n[C]lidi jsou andělé a nebo [Dm]draci\n[Bb]a každej dobrej skutek sílu [F]vrací."
+    },
+    {
+      "id": "kabat-mala-dama",
+      "title": "Malá dáma",
+      "artist": "Kabát",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Utrhla trávu a začla hrát ta malá dáma z [Am]předměstí [C]\n[B]co umí lidem z dlaní číst\n[Em]Tam kočky z rána mívaj hlad [Am]\n[C]po noci plný neřestí [B]je pohladí a dá jim jíst\n\n[Am]Po tmě se toulá\n[C]došly mi slova [B]já stál tam jen [Em]s touhle jedinou bych zemřel\n[C]S touhle bych zemřel v jedinej den [G]a jestli vám to nestačí\n[C]kdyby tam stála stovka žen [B]vyzvu ji k tanci a to netančím"
+    },
+    {
+      "id": "kabat-pohoda",
+      "title": "Pohoda",
+      "artist": "Kabát",
+      "folderId": "ceske",
+      "key": "F#m",
+      "content": "[F#m]Vezmu tě má milá rovnou k [C#m]nám\n[F#m]Kolem louky, lesy, hejna [C#m]vran\n[F#m]Všude samá kráva, sa[E]mej [Bm]vůl\n\n[D]Když se u nás chlapi pope[A]rou,\ntak jenom nožem ane[E]bo seke[Bm]rou.\nV zimě tam dlouhý noci [D]jsou a tu[A]hej [Bm]mráz!\n[D]Jak jsou naše cesty za[A]vátý,\ntak vezmem vidle a ne[E]bo lopa[Bm]ty,\n[D]když něco nejde, co na tom [A]sejde?\n[Bm]My máme čas!"
+    },
+    {
+      "id": "kabat-stara-lou",
+      "title": "Stará Lou",
+      "artist": "Kabát",
+      "folderId": "ceske",
+      "key": "F#m",
+      "content": "[F#m]Já línej Bob a stará [E]Lou [A]\n[C#]se táhnem po [F#m]kraji\n[E]už tolik let a tolik [A]dnů\n[C#]na turné po [F#m]ráji\n\n[D]Nad obzorem svítá [A]\na je to za [E]náma a naše [D]stará Lou\n[A]ten lektvar míchá a pak ho [E]podává\na nám se nechce spát..."
+    },
+    {
+      "id": "kabat-v-pekle-sudy-valej",
+      "title": "V pekle sudy válej",
+      "artist": "Kabát",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Jede vlak no a my jedem v něm\n[A]Vlak s ucpaným ko[Em]mínem\n[C]Lidi řvou zmatkujou\n[G]Kdo ví zda to přežijem\n\n[D]V pekle sudy válej\n[A]Z kotle pára sto[Em]upá\n[C]Na stůl nám to dávej\n[G]Ať to s náma houpá"
+    },
+    {
+      "id": "karel-gott-byt-stale-mlad",
+      "title": "Být stále mlád",
+      "artist": "Karel Gott",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Čas dál si běží svůj mara[G]tón [Am]\n[F]někdy se cítím starší než-li [G]on\n\n[C]Být stále mlád to bych si přál být stále [G]mlád [Am] [F]\n[G]vzepřít se jednou provždy kalen[Dm]dáři\n[F]jen mládí, nikdy [G]stáří\n[C]být stále mlád zkouším to dál být stále [G]mlád [Am] [F]\n[G]i přes ty známky času ve své [Dm]tváři\n[F]být stále [G]mlád [C]"
+    },
+    {
+      "id": "karel-gott-kavu-si-osladim",
+      "title": "Kávu si osladím",
+      "artist": "Karel Gott",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Hlavu níž nesklopím, [D]\n[D7]nezmizím v hlubi[G]nách,\n[C]uvidíš, co udělám,\n[G]až pochopím, že chceš mi [D7]sbohem [G]dát.\n\n[G]Kávu si osladím o trochu víc\n[D]svý bendžo naladím, a jinak nic.\n[G]Oslavím sám Vánoční svátky [B] [Em]\n[A]a na jaře si vrásky spo[A7]čítám. [D] [D7]\n[G]Kávu si osladím o trochu víc,\n[D]v duchu tě pohladím, a jinak nic.\n[G]Pustím svůj žal zadními vrátky [B] [Em]\n[Am]a půjdu zase klidně o dům [D7]dál. [G]"
+    },
+    {
+      "id": "karel-gott-trezor",
+      "title": "Trezor",
+      "artist": "Karel Gott",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Ze zdi na mě tupě zírá po trezoru temná [C]díra,\n[A7]poznám tedy bez nesnází, že tam nepochybně něco [D7]schází,\n[G]ve zdi byl totiž po dědovi velký trezor oce[C]lový.\n[D7]Mám tedy ztrátu zdánlivě mini[C]mální [G]\n\n[G]Na to že náhodně v krámě vášnivé [D7]dámě padl jsem za tro[G]fej, [Em]\n[A7]tvrdila pevně: přijdu tě levně, nezoufej, ó jé, jé, jé, [D7]jé."
+    },
+    {
+      "id": "karel-gott-cau-lasko",
+      "title": "Čau lásko",
+      "artist": "Karel Gott",
+      "folderId": "ceske",
+      "key": "A",
+      "content": "[A]Ukrutně pršelo, tvůj deštník do sucha [F#m]zval, [Bm]\n[E7]pak se ten zázrak stal, navzdory dešti jsem vzplál. [A]\n\n[A/H]Čau, lásko, čau, lásko!\n[Dm]Ty jediná, nejdražší, nejsladší,\n[A]na shledanou!\n[A]Čau, lásko, čau [B7]lásko!\n[Dm]Ty jediná, nej trpčí, nejkratší,\n[A]na shledanou!"
+    },
+    {
+      "id": "karel-kryl-andel",
+      "title": "Anděl",
+      "artist": "Karel Kryl",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Z rozmlácenýho kostela v krabici s kusem [Em]mýdla [G] [D7]\npřinesl jsem si anděla, polámali mu křídla,\n[G]díval se na mě oddaně, já měl jsem trochu [Em]trému, [G] [D7]\ntak vtiskl jsem mu do dlaně lahvičku od parfému.\n\n[C/G]A proto, prosím, věř mi, chtěl jsem ho [Am]žádat, [C/G] [G7]\n[C/G]aby mi mezi dveřmi pomohl [Am]hádat, [C/G] [G7]\n[C/G]co mě čeká a ne[Am]mine, [G7]co mě čeká a ne[Am]mine. [G7] [C/G]"
+    },
+    {
+      "id": "karel-kryl-bratricku-zavirej-vratka",
+      "title": "Bratříčku, zavírej vrátka",
+      "artist": "Karel Kryl",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "kápo 5 (v A moll)\n\n[Em]Bratříčku, nevzlykej, to nejsou bu[G]báci,\n[D]vždyť už jsi veli[B7]kej, to jsou jen vojáci,\n[C]přijeli v hranatých železných marin[B7]gotkách.\n\n[Am]Se slzou na víčku hledíme na [C]sebe,\n[G]pojď se mnou, bratříčku, bojím se o [E]tebe\n[F]na cestách klikatých, bratříčku, v polo[E]botkách.\n\n[Em]Prší a venku se set[Bm]mělo,\n[Em]tato noc nebude [Bm]krátká,\n[C]beránka vlku se zach[Bm]tělo, [Em]\n[B7]bratříčku, zavřel jsi [Em]vrátka? [B7]"
+    },
+    {
+      "id": "karel-kryl-morituri-te-salutant",
+      "title": "Morituri te salutant",
+      "artist": "Karel Kryl",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Cesta je prach a štěrk a udusaná [Am]hlína [G] [Dm] [Am]\n[F]a šedé šmouhy kreslí do [G7]vlasů [C]\n[Dm]a z hvězdných drah má šperk, co kamením se [G]spíná, [C] [E]\n[Am]a pírka touhy z křídel Pega[G]sů. [Em] [Am]\n\n[Am]Seržante, písek je bílý jak paže Danie[G]ly,\n[Am]počkejte chvíli! Mé oči uviděly\n[Am]Morituri te salutant, morituri te salutant! [G] [Am] [G] [Am]"
+    },
+    {
+      "id": "krystof-atentat",
+      "title": "Atentát",
+      "artist": "Kryštof",
+      "folderId": "ceske",
+      "key": "A",
+      "content": "[A]Atentát, v po[E]steli,\n[F#m]vše co mám rád roz[D]dělí,\n[A]na dva ostrovy, od se[E]be daleko,\n[F#m]všechno v nás už pře[D]teklo.\n\n[A]Jsme uvězněni v tě[E]lech,\n[F#m]jak hudba v deci[D]belech, [A] [E]\n[F#m]zas budem šťastni, tak pro[D]sím, zhasni [A]svět."
+    },
+    {
+      "id": "krystof-cesta",
+      "title": "Cesta",
+      "artist": "Kryštof",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Tou cestou\n[G]Tím směrem prý bych se dávno měl dát\n[Dm]Když sněží, jde to stěží, ale sněhy pak tají\n[F]Kus něhy ti za nehty slí[G]bí a dají\n\n[C]Jestli se blížím k cíli\n[G]Kolik zbývá víry, kam z[Am]vou\n[F]Svodidla, co po tmě mi l[G]žou?"
+    },
+    {
+      "id": "krystof-inzerat",
+      "title": "Inzerát",
+      "artist": "Kryštof",
+      "folderId": "ceske",
+      "key": "E",
+      "content": "[E]Pod nocí ukrytá, do nebes rozpitá\n[A]chceš dotknout se hvězd, dotknout se hvězd\n[E]k Tobě vstříc vyráží Velký vůz z nádraží,\n[A]ale už nechceš mě svézt, nechceš mě svézt\n\n[B]Poslední lístek si kou[C#m]píš na splátky[A]\n[B]a z úroků si před platím, že se vrá[C#m]tíš zpátky[A]\n\n[E]Přes inzerát marně hle[Am]dám Tvůj stín,\n[C#m]v mém výkazu ztrát si další donquichotský m[C#m/B]lýn [A] [E]"
+    },
+    {
+      "id": "krystof-ty-a-ja",
+      "title": "Ty a já",
+      "artist": "Kryštof",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Znám milion blyštivých měst v nich milion dve[F]ří\n[G]za nimi labyrinty cest, co mě lákají [C]dál\n\n[F]Protože ty a já jsme jedno jen ze dvou čás[G]tí\n[F]protože ty a já jsme dvě křídla nad propa[G]stí\n\n[C]A tak doufám, že to co mě i tebe tak mra[F]zí\n[G]nejsou jen tři tečky na konci frá[C]zí"
+    },
+    {
+      "id": "krystof-zustan-tu-se-mnou",
+      "title": "Zůstaň tu se mnou",
+      "artist": "Kryštof",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Celý den, celou noc jsem mu psal,\n[D]že to nedopustím,\n[Em]on mlčel a já pak křičel asi\n[D]že zapomíná na přesčasy,\n\n[G]Budem se rvát, budeme řvát,\nhrát nejlepší přátele,\n[D]čmárat si po tělech\nže jsme dva andělé,\n[Em]budeme snít v peřejích\n[C]jen zůstaň tu se [D]mnou."
+    },
+    {
+      "id": "lucie-chci-zas-v-tobe-spat",
+      "title": "Chci zas v tobě spát",
+      "artist": "Lucie",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "Capo 1\n\n[G]Mlčíš a svět je fany zá[Bm]hadou,\n[Em]stává se pro mě hany, když dračí drápy t[C]nou,\n[G]temnice tmavá vříská, bleskne t[Bm]mou,\n[Em]mý vlasy loučí víská, letí nad vo[C]dou\n\n[D]A hrubý síly vzývám, sní[C]dám bezpráví,[G]\n[Em]jestli se vážně hodíš, nevím nejdu s[C]pát,\n[D]na kolej kluky vodíš a ráno se chceš b[C]rát,\n[Em]jestli se ke mně hodíš, snad jdu k tobě s[C]pát,"
+    },
+    {
+      "id": "mandrage-hleda-se-zena",
+      "title": "Hledá se žena",
+      "artist": "Mandrage",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Hledá se žena, mladá slečna,[G] [E]\n[Am]kdekoli ona může být[G] [E]\n\n[Am]Hledá se žena, dobrá zpráva,[G]\n[F]může chtít víc, než moje prá[G]va.\n[Am]Stále čekám, marná slá[C]va,\n[G]budu hledat, kde budeš chtít.[G]"
+    },
+    {
+      "id": "mandrage-srouby-a-matice",
+      "title": "Šrouby a matice",
+      "artist": "Mandrage",
+      "folderId": "ceske",
+      "key": "A",
+      "content": "[A]Mezi zemí a nebem\n[E]A širým světem\n[Bm]Je jeden náš\n[D]Tak dobře ho zn[E]áš\n\n[A]Tahat tě za vlasy, dýchat ti do tvá[E]ře,\n[Bm]Dělat si nároky na tvoje pol[D]štáře\n[A]Sahat ti pod sukni, kousat tě na ru[E]ce\n[Bm]Dělat ti snídani, říkat ti opi[D]ce."
+    },
+    {
+      "id": "marek-ztraceny-tak-se-nezlob",
+      "title": "Tak se nezlob",
+      "artist": "Marek Ztracený",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Asi jsem si všímal jenom sám sebe\na vůbec nevnímal, že mám taky tebe\n[Em]měl jsem tě brát na kolotoč anebo do ki[Am]na\n[F]a večer složit hlavu k tobě do klí[G]na[C]\n\n[C]Tak se nezlob, že jsem takovej v[Em/B]ůl\n[Am]a nedělil se s tebou na[F]půl\n[C]a zapomněl jsem se tě občas ptát[Em/B]\n[Am]jak se máš a co si k snídani d[F]áš?"
+    },
+    {
+      "id": "marek-ztraceny-ztraciš",
+      "title": "Ztrácíš",
+      "artist": "Marek Ztracený",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "Capo 2\n\n[G]Někdy lidem zbyde jenom ví[Am]ra,\n[G]co se ztrácí při pohledu na s[Am]vět.\n\n[G]Ztrácíš se z mojí pamě[F]ti\n[C]a lidi od nepaměti se znovu scházej, j[G]éé\n[G]A doufám, že stihnem těch pár v[F]ět,\n[C]že najdem cestu zpět, tvý oči mi scházej, je[G]jé"
+    },
+    {
+      "id": "michal-tucny-buraky",
+      "title": "Buráky",
+      "artist": "Michal Tučný",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Když Se[C]ver válčí s Ji[G]hem a zem jde do války\n[G]a v polích místo bavl[A]ny teď rostou bod[D]láky.\n\n[G]Hej hou, hej hou, nač cho[C]dit do vál[G]ky,\n[G]je lepší doma sedět a lous[A]kat bu[D]ráky,\n[G]hej hou, hej hou, nač cho[C]dit do vál[G]ky,\n[G]je lepší doma sedět a lous[D]kat bu[G]ráky."
+    },
+    {
+      "id": "michal-tucny-bajecna-zenska",
+      "title": "Báječná ženská",
+      "artist": "Michal Tučný",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Tenhle příběh je pravda, ať visím, jestli vám budu l[C]hát,\n[D7]já jsem potkal jednu dívku a do dnešního dne ji mám r[G]ád,\n\n[G]Když si báječnou ženskou vezme báječnej ch[C]lap,\n[D7]tak mají báječnej život plnej báječnejch dní bez út[G]rap,\n[C]celej den jen tak sedí a popíjejí Châteauneuf-du-Pape,\n[D7]když si báječnou ženskou vezme báječnej ch[G]lap."
+    },
+    {
+      "id": "michal-tucny-poveste-ho-vejs",
+      "title": "Pověste ho vejš",
+      "artist": "Michal Tučný",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "kapo 2\n\n[Em]Pověste ho vejš, ať se houpá, po[G]věste ho vejš, ať má d[D]ost,\n[Am]pověste ho vejš, ať se ho[Em]upá, že tu byl nez[D]vanej h[Em]ost.\n\n[Em]Pověste ho za El Paso, za Snídani v trávě a Lo[G]dní zv[D]on,\n[Am]za to, že neoplýval krá[Em]sou,\n[C]že měl country rád a že se uměl smát i [B7]vám.[Em]"
+    },
+    {
+      "id": "michal-tucny-vsichni-jsou-uz-v-mexiku",
+      "title": "Všichni jsou už v Mexiku",
+      "artist": "Michal Tučný",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Kde jen jsou a kde jsem já,\n[A]proč všechno končí, co začíná,\n[Bm]smůla se mě lepí ve zvy[E]ku\n[A]a všichni jsou už v Mexi[A7]ku.\n\n[D]Všichni jsou už v Mexiku, Bue[A]nos Dias já taky jdu,\n[Bm]aspoň si poslechnu pěknou muzi[E]ku, co se hraje v Mexi[A]ku.[A7]"
+    },
+    {
+      "id": "mig-21-kalhotky-si-sundej",
+      "title": "Kalhotky si sundej",
+      "artist": "Mig 21",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Déšť proťal blesk, ozářil tvář, osvítil l[G]íc,\n[Am]Bůh Zeus oslovil ženu, stačilo jen říc[G]t.\n\n[C]Zvolna kalhotky si sundej, od[F]pusť jestli trochu na[C]léhám.[F][C][Dm]\n[C]Neznám rým na slovo sundej, touha je silnější než j[F]á.[C]"
+    },
+    {
+      "id": "mirai-chci-tancit",
+      "title": "Chci tančit",
+      "artist": "Mirai",
+      "folderId": "ceske",
+      "key": "F",
+      "content": "[F]Život plyne dál\n[Bb]Nechci promarnit ho v jistotách\n[Dm]Než bych na břehu stál\n[Csus4]Radši stokrát bych si na dno sáhl\n\n[Bb]Chci tančit zimou i lé[F]tem,\n[C]projít bez starostí celým širým světem.\n[Bb]Večer pít víno, na nebe se dí[F]vat,\n[C]počítat hvězdy dokud nezačne svítat."
+    },
+    {
+      "id": "mirai-kdyz-nemuzes-tak-pridej",
+      "title": "Když nemůžeš, tak přidej",
+      "artist": "Mirai",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Nezvládáš, dojít k cíli, odpočíváš každou chvíl[F]í.[C]\n\n[C]Když nemůžeš, tak přidej víc, zakřič prostě z plných plic,\n[Am]že slovo nejde - neexistuje, slovo nejde - neexis[F]tuje.\n[C]Když nemůžeš, tak přidej víc, zakřič prostě z plných plic,\n[Am]že to dáš, na to máš, že to d[F]áš."
+    },
+    {
+      "id": "mirai-litej-davidovi",
+      "title": "Lítej (Davidovi)",
+      "artist": "Mirai",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Hledáme svou nirvánu,[G][Em]\n[D]ať můžem v klidu dýchat d[C]ál.\n[G]Věřím, že duše nestárno[Em]u\n[D]a jen to dobrý zůstat m[Em]á.\n\n[D]A tak si lítej, jsi voln[C]ej,[G]\n[Em]teď už můžeš v klidu sp[D]át.\n[D]Někdy se usměj, zamávej,[C][G]\n[Em]ať pak vím, kde hledat m[D]ám."
+    },
+    {
+      "id": "nedvedi-kohout",
+      "title": "Kohout",
+      "artist": "Nedvědi",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "kapo 2\n\n[G]S podvečerem tady u nás začnou ptáci zpívat\n[D]a nad krajinou nebe vzlítne kamsi, kde je řád\n[Am]a do řeky se světla z oken budou chvilku dívat\n[C]a pak si unavený lásky půjdou lehnout, budou sp[D]át.\n\n[G]Zvony zvoní jen chvíli, ruce budou se třást\n[D]a pak zmlknou má lásko,\n[Am]to kohout je umlčí k ránu, kdy[C]ž mě opouštíš.[G][D]"
+    },
+    {
+      "id": "nedvedi-podvod",
+      "title": "Podvod",
+      "artist": "Nedvědi",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "CAPO 2\n\n[Em]Na dlani jednu z tvých řas, do tmy se kouk[Am]ám,\n[D]hraju si písničky tvý, co jsem ti ps[G]al,\n[Am]je skoro půlnoc a z kostela zvon mi noc při[C]pomíná,[Em]\n[Am]půjdu se mejt a pozhasínám, co bude d[B7]ál?\n\n[Am]Chtěl jsem to ráno, kdy naposled snídal jsem s tebou,\n[Em]ti říct, že už ti nezavolám,\n[Am]pro jednu pitomou holku, pro pár nocí touhy[D]\n[G]podved' jsem všechno, o čem doma si sn[B7]íš,\n[Em]teď je mi to líto."
+    },
+    {
+      "id": "nedvedi-stanky",
+      "title": "Stánky",
+      "artist": "Nedvědi",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]U stánků na levnou krásu\n[Gm]postávaj' a smějou se času,\n[D]s cigaretou a s holkou, co nemá kam [A7]jít. [D]\n\n[G]Jen zahlídli svět, maj' na duši vrásky,\n[D]tak málo je, málo je lásky,\n[D]ztracená víra hrozny z vinic neposbírá. [A7] [D]"
+    },
+    {
+      "id": "nightwork-globalni-oteplovani-ja-jsem-gay",
+      "title": "Globální oteplování – Já jsem gay!",
+      "artist": "Nightwork",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Když jsem ještě býval malej kluk,\n[Dm]kluci já měl sen.\n[C]Sníval jsem ho každý, každý všední [Dm]den.\n\n[C]Já jsem GAY, jsem GAY, jsem [D]TEPLEJ,\n[C]Já jsem GAY, jsem GAY, jsem TEPLEJ,\n[F]buď taky GAY..."
+    },
+    {
+      "id": "nightwork-maja",
+      "title": "Maja",
+      "artist": "Nightwork",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Učení páni zkušení,\n[C]já bych Vám rád teď podotknul.\n[Em]Nikdo z Vás nemá tušení,\n[C]že v dálce stojí malý úl.\n\n[Em]Z něj každé ráno vylétává včelka Mája,\n[C]malá uličnice včelka Mája.\n[Em]Z něj každé ráno vylétává včelka Mája,\n[C]naše kamarádka včelka Mája..."
+    },
+    {
+      "id": "nightwork-cekam-na-signal",
+      "title": "Čekám Na Signál",
+      "artist": "Nightwork",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Čekám na signál,\n[Dm]ten z nebe nepřichází\n[G]a tak čekám dál.\n\n[F]Tisíce družic, vysílačů, vedení a přijímačů,\n[Dm]jak pilné včelky rozsévají signál z květu na květ. [G] [C]"
+    },
+    {
+      "id": "olympic-bonsoir-mademoiselle-paris",
+      "title": "Bonsoir, mademoiselle Paris",
+      "artist": "Olympic",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Mám v kapse jeden frank,\n[G7]jsem nejbohatší z bank nad Seinou, [C] [E7]\n\n[F]Láska je úděl tvůj, pánbůh tě opatruj,\n[F]bonsoir, mademoiselle [G]Paris, [Am]\n[F]bonsoir, mademoiselle [G]Paris. [Am]"
+    },
+    {
+      "id": "olympic-dej-mi-vic-sve-lasky",
+      "title": "Dej mi víc své lásky",
+      "artist": "Olympic",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Vymyslel jsem spoustu napadů, aů, [C]\n[Am]co podporujou hloupou náladu, aů, [G] [E7]\n\n[C]Má drahá, dej mi víc, má drahá, dej mi víc, [E]\n[Am]má drahá, dej mi víc své lásky, aů, [F] [C] [G]\n[C]já nechci skoro nic, já nechci skoro nic, [E]\n[Am]já chci jen pohladit tvé vlásky, aů. [F] [C] [G]"
+    },
+    {
+      "id": "olympic-jasna-zprava",
+      "title": "Jasná zpráva",
+      "artist": "Olympic",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Skončili jsme, jasná zpráva,\n[Am]proč o tebe zakopávám dál, [F] [G]\n[Dm]projít bytem já abych se bál. [F] [C]\n\n[Am]Pěnu s vůní jablečnou, vyvanulý sprej,\n[Em]telefon, cos ustřihla mu šňůru, [C] [G]\n[Am]knížku krásně zbytečnou, co má lživý děj, [Em]\n[Am]píše se v ní, jak se lítá [C]vzhůru, [G]\n[Dm]lítá vzhůru, ve dvou [G]vzhůru."
+    },
+    {
+      "id": "olympic-okno-me-lasky",
+      "title": "Okno mé lásky",
+      "artist": "Olympic",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Kdo tě líbá, když ne já, [F]\n[C]kdo tě hlídá, když ne já, [F]\n[C]okno v přízemí je zavřené i dnes, lásko [B]má. [F] [C]\n\n[Am]A v jeho lesku vidím přicházet [G] [F]\nsebe ve věku patnáct let\n[Am]a znovu říkám spoustu něžných vět: [G] [F]\n[C]Ty, já, jsme my, my a náš je svět. [F] [C] [G]"
+    },
+    {
+      "id": "olympic-slzy-tvy-mamy",
+      "title": "Slzy tvý mámy",
+      "artist": "Olympic",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "kápo 2\n\n[Em]Chvilku vzpomínej, je to všechno jen pár let,\n[D]na kytaru v duchu hrej, tvoje parta je tu hned,\n[Em]z cigaret je modrej dým, hraje magneťák, [E7] [Am]\nholka sedla na tvůj klín, nevíš ani jak.\n\n[E]Když tě našel noční hlídač,\n[C]byl by to jen příběh bláznivýho kluka, [G]\n[C]nebejt nože ve tvejch dětskejch rukách,\n[C]nebejt strachu, mohlo to bejt všechno jináč. [G] [Bm] [Em] [B7]"
+    },
+    {
+      "id": "pavel-callta-nastesti",
+      "title": "Naštěstí",
+      "artist": "Pavel Callta",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Proč mám klít\na proč být sklíčen\nJen když jsem si zabouch klíče\nHnedka po ránu [Em] [C]\n\n[G]Neštěstí naštěstí\nnosí střepy\nZe střepů štěstí svý\nZase slepím [Em] [C]\nV neštěstí naštěstí\nJak známo\nŠtěstí svý najít smíš nejspíš"
+    },
+    {
+      "id": "pavel-callta-terapeut",
+      "title": "Terapeut",
+      "artist": "Pavel Callta",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em][C][G][D]\nSám takhle v báru, už nemám páru,\nkdo jsem a kde jsem, jak dostat se ze sváru.\n\n[C][D][Em]\nChtěl bych říct jednu zásadní věc, nikdy na nic nejsi sám.\nByť máš splín, řekni si pár vět:\n[C]Je to jako vakcína na na na.\n\n[C][G][D][Em]\nJsem Tvůj terapeut, s praxí i diplomem.\nTvůj psychoterapeut, pomůžu s problémem.\nJsem Tvůj farmaceut, co píše recepis.\n[C]Ze songů a slov namíchám Ti sílu,\nto si piš."
+    },
+    {
+      "id": "pavel-callta-zrzka",
+      "title": "Zrzka",
+      "artist": "Pavel Callta",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Nastoupila jedna krásná zrzka,\n[G]Takých je prej na světě jen hrstka,\n[Am]Chtěl sem ji říct: \"Ahoj, já jsem Pavel\"\n[F]Chybělo odhodlání ...\n\n[C]Vstávám ráno, v hlavě jí pořád mám,\n[G]doufám, že jí zase jednou potkám,\n[Am]inzeráty na všechny portály dám, dám, dám,\n[F]asi se zbláznim, jestli jí už nepotkám."
+    },
+    {
+      "id": "pokac-blbej-den",
+      "title": "Blbej den",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Hned jak jsem z postele vstal\n[C]panické děs se mě jal\n[G]co ještě horšího se může mi stát [D]\n\n[Em]Mám fakt blbej den\n[C]co si počít mám\n[Am]co komu proved jsem\n[D]že tohle prožívám\n[Em]doufám že teď spím\n[C]a je to jen zlej sen\n[Am]nepřál bych ostatním\n[D]mít takhle blbej den"
+    },
+    {
+      "id": "pokac-dej-mi-pusu",
+      "title": "Dej mi pusu",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Holka, dej mi pusu, [Em]nemáš se čeho bát,\nVím, nejsem [Am]krasavec, dle obecnýho vkusu\nZato [C]jsem však uni[D]kát.\n\nTak holka dej mi [G]pusu\nNohama vzhůru [Em]převrátím tvůj svět\nA jestli [Am]ne, tak aspoň budeme mít historku,\nkterou můžem ká[C]mošům vyprá[D]vět."
+    },
+    {
+      "id": "pokac-matfyzak-na-discu",
+      "title": "Matfyzák na discu",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "kapo 3\n\n[Am]Potkal jsem jednu holku na diskošce\n[G]zašeptala že teď a tady to chce\n[F]ja se zeptal co tím myslí přesně\n[E7]a ona že prej po tom touží děsně\n\n[Am]Potkal jsem holku na discu\n[Dm]obličej měla na missku\n[Dm6/B]postavu jako z playboye\n[Am]zatáhla mě do svýho pokoje"
+    },
+    {
+      "id": "pokac-mam-doma-kocku",
+      "title": "Mám doma kočku",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "capo 1\n\n[G]Jednou mi drahá říká:\n[Em]Miláčku, já chci kočku\n[C]Já na to, že chci spíš psa\n[D]A jeli jsme pro kočku\n\n[G]Mám doma kočku, mám ji rád\n[Em]Je to skvělý kamarád\n[C]Jen od tý doby, co ji znám\n[D]Mám ruce nohy samej šrám\nDávno už se nemazlí\n[C]Žít s ní je pro zdraví fakt zlý\n[D]Každý den projdu terorem\nMám nejspíš kočku s errorem"
+    },
+    {
+      "id": "pokac-v-lese",
+      "title": "V lese",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "F",
+      "content": "[F]Dneska všichni říkají a všude píše se,\nže prej je moderní a zdravý jen tak chodit po lese. [C] [G] [Am]\n\n[F]Dneska jsem v lese byl a už tam nepudu,\nnikde jsem nezažil takhle ukrutnou nudu. [C] [G] [Am]"
+    },
+    {
+      "id": "pokac-vymlaceny-entry",
+      "title": "Vymlacený entry",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "doporučení: CAPO IV od Em\n\n[Am]Mám nadupanej komp [F]\n[C]s grafikou jak svině [G]\n\n[F]Páč tenkrát pařit Prince a Dooma s motorovkou mělo grády [G]\n[E7]klávesnice vymlácený entry od olym[Am]piády\n[F]když rodiče spali my čekali do rána [G] [C]\n[F]až se načte fotka ženský s pořádnejma ... kozama [C] [G]"
+    },
+    {
+      "id": "pokac-uplne-levej",
+      "title": "Úplně levej",
+      "artist": "Pokáč",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[kapo 3. Pražec]\n\n[G]můj táta vždycky říkával a je to moudrý muž [B7]\n[C]vždycky říkal synu neber do ruky ten nůž [G] [D]\n[G]ale já ho nikdy neposlech a nůž do ruky vzal [B7]\n[C]a brutálně se celej pořezal [D] [G]\n\n[C]tak se lásko prosím nehněvej [G]\n[D]za to že jsem úplně levej [Em]\n[C]byl jsem a budu vždycky na veškerý praktický činnosti [G] [D]\nzato jsem však dobrák od kosti"
+    },
+    {
+      "id": "ready-kirken-zejtra-mam",
+      "title": "Zejtra mám",
+      "artist": "Ready Kirken",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Zejtra mám zejtra mám svůj den [Em] [Am] [G]\n[F]zejtra se mi splní moje tajný přání můj sen [Em] [Dm] [G]\n[C]dlouho tě znám dlouho tě znám mám tě rád [Em] [Am] [G]\n[F]uvidím tě zas uslyším tvůj hlas možná [Em] [Dm] [G]\n\n[F]Nebudu sám nebudu sám [E]\n[Am]zejtra tě mááááám, [C]\n[Am]mááááám, mááááám, [D]\n[E]jééé"
+    },
+    {
+      "id": "richard-muller-srdce-jako-knize-rohan",
+      "title": "Srdce jako kníže Rohan",
+      "artist": "Richard Müller",
+      "folderId": "ceske",
+      "key": "F",
+      "content": "[F]Měsíc je jak Zlatá bula Si[C]cilská\n[Am]Stvrzuje že kdo chce ten se do[G]píská\n\n[F]Dnes je valcha u starýho Rů[C]žičky\n[Am]dej si prachy do pořádný roli[G]čky\n[F]Co je na tom, že to není extra nóbl[C] byt,\n[Am]srdce jako kníže Ro[G]han mu[F]síš m[C]ít."
+    },
+    {
+      "id": "slavicek-az-po-usi",
+      "title": "Až po uši",
+      "artist": "Slavíček",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Až budu pod zemí tak chci vytetovat na du[D]ši\nže jsem byl do ní zamilovanej až po u[Am]ši[Em]\n[G]podle mýho to sice vůbec netušila[D]\nale s nikym jinym než se mnou jí to nesluší[Am][Em]\n\n[G]sice má kluka a chce s nim dí[D]tě\nto neva naše má už sociální sí[Am]tě[Em]"
+    },
+    {
+      "id": "slavicek-jestli-existuje-buh",
+      "title": "Jestli existuje Bůh",
+      "artist": "Slavíček",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Jestli existuje Bůh, tak vždycky když se svlí[Dadd9]káš,\n[Am7]je mu, holka, všechno fuk, páč jen na tebe se dí[Cadd9]vá.[G]\n[Dadd9]Jestli existuje Bůh, tak má po svato[Am7]záři,\n[Cadd9]protože mi závidí, že si tě vezmu k oltáři.[G]"
+    },
+    {
+      "id": "slavicek-vysokej-standard",
+      "title": "Vysokej standard",
+      "artist": "Slavíček",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am7]Nehledám tři devítky, hledám jednu deset z dese[F]ti\n[C]Dík za nabídky, ale zatím žádná nese[G]dí\n[Am7]Na mý parametry a na můj vysokej stan[F]dard\n[C]Nechci Mercedesa já chci Porshe nebo Lam[G]ba"
+    },
+    {
+      "id": "superstar-pribeh-nekonci",
+      "title": "Příběh nekončí",
+      "artist": "Superstar",
+      "folderId": "ceske",
+      "key": "E",
+      "content": "[E]Tisíc krokov od spomienok\n[A]som len kúsok od mojho sna [B]\n[C#m]mám chvíľu pokým sa, nepopálim [B] [A]\n[B]nosím dosud stejný jméno\n\n[C#m]Veď príbeh nekončí, ja ďalej hrám\n[E]a padám viac než vstávam\n[A]svoju dušu dám, na misku prázdnych váh[Bsus4][B]\n[C#m]ješte nekončím, já jedu dál\n[A]a rvu se za svý práva\n[E/G#]a nosím štěstí své po kap[B]sách[E]"
+    },
+    {
+      "id": "team-boli-sme-raz-milovani",
+      "title": "Boli sme raz milovaní",
+      "artist": "Team",
+      "folderId": "ceske",
+      "key": "E",
+      "content": "[E]Život náš je lacný ho[A]tel\n[B]Iba chvíľu bývaš v [A]ňom [E]\n\n[C#m]Zopár dievčat bolo s na[A]mi [E]\n[F#m]Boli lásky na pár d[E]ní [A][B]\n[C#m]Boli sme raz milova[A]ní [E]\n[F#m]A tak budeme raz, budeme raz spa[E]sení[A][B][E]"
+    },
+    {
+      "id": "team-drzim-ti-miesto",
+      "title": "Držím Ti miesto",
+      "artist": "Team",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Keď budeš cítiť že život s tebou za[F]metá\n[Am]Keď ťa budú chcieť do klubu posled[G]ných [C]\n\n[Am]Držím Ti miesto, teraz už vieš to, nemusíš sa bá[F]ť.\n[Am]Držím Ti miesto, nie je to gesto, [G]             [C]\n[Am]ako toľko krát."
+    },
+    {
+      "id": "team-mam-na-teba-chut",
+      "title": "Mám na teba chuť",
+      "artist": "Team",
+      "folderId": "ceske",
+      "key": "Dm",
+      "content": "[Dm]Od prvých dní si návyková\n[Bb]trápiš ma viac než šialený hlad [Gm]\n\n[C]Mám na teba chuť a stále ťa chciem [Dm] [F]\n[Bb]kúsok po kúsku celú ťa zjiem [Gm]\nmám na teba chuť aj včera aj dnes\ntelo si pýta a musí jesť"
+    },
+    {
+      "id": "team-reklama-na-ticho",
+      "title": "Reklama na ticho",
+      "artist": "Team",
+      "folderId": "ceske",
+      "key": "Dm",
+      "content": "[Dm]Reklamu na ticho dnes v telke [Am]dávajú,[Dm][Am]\n[Dm]každý z nás spozornie, len čo zba[Am]dáju.[Bb][C]\n\n[Bb]Mužete ho zohnať len pod ru[C]kou, [F]\n[Bb]nááádherné ticho [C]hor.[F]"
+    },
+    {
+      "id": "tomas-klus-marie",
+      "title": "Marie",
+      "artist": "Tomáš Klus",
+      "folderId": "ceske",
+      "key": "F",
+      "content": "[F]Je den. Tak pojď Marie v[A]en.\n[Bb]Budeme žít. A házet šutry do oken. [C]\n[F]Je dva. Necháme doma trucos[A]vat.\n[Bb]Když nechtějí - nemusí. Nebudem se vnucovat. [C]\n\n[F]Já mám Marie rád. Když má moje bytí s[A]pád.\n[F]Živ a měj rád,[B] co je. [A] [Bb]\n[C]Nechtěj mě milovat. [F] [A] [Bb] [C]"
+    },
+    {
+      "id": "tomas-klus-napojen",
+      "title": "Napojen",
+      "artist": "Tomáš Klus",
+      "folderId": "ceske",
+      "key": "E",
+      "content": "[E]Vzpomeň, jak's oči[A]ma dítěte\n[E]hleděl na letí[B]cí ptáky,\n[E]jak krásné bylo bý[A]t na světě\n[E]s vědomím, že umíš[B] to taky.\n\n[E]Ničeho nelituj,\n[A]Život, co máš, je Tvůj,\n[E]žij a měj rád,[B] co je.\n[E]cítíš, jak jsi na[B]pojen,\n[E]jak jsi na[A]pojen."
+    },
+    {
+      "id": "tomas-klus-nina",
+      "title": "Nina",
+      "artist": "Tomáš Klus",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Dnes v noci jsem ze spaní křičela tvoje jméno,\n[Bm]já vím, že nejsi rád, ale nejde zapomenout,\n[G]jak při každém slově přivíráš víčka.\n[A]Prosím, vyslyš moji zpověď, už jsme starý na psaníčka.\n\n[D]Jsi mé úzko, jsi krev z řezných ran,\n[Bm]jsi ten, kdo vchází nepozván,\n[G]jsi zvuk, když padnou mi na rety [A]slzy múz."
+    },
+    {
+      "id": "tomas-klus-pocity",
+      "title": "Pocity",
+      "artist": "Tomáš Klus",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Z posledních pocitů [G]poskládám ješ[Am]tě jednou úžas[F]nou chvíli\n[C]Je to tím, že jsi tu,[G] možná tím, že [Am]kdysi jsme byli [F]Ty a\n[C]já, my dva, dvě nah[G]ý těla\n\n[C]Jenže ty neslyšíš,[G] jenže ty neposlou[Am]cháš,[F]\n[C]snad ani nevidíš,[G] nebo spíš nechceš [Am]vidět[F]\n[C]a druhejm závidíš[G] a v očích kapky sl[Am]aný vody[F]\n[C]zkus změnu, uvidíš.[G] Pak vítej do svo[Am]body.[F]"
+    },
+    {
+      "id": "tomas-klus-panubohudooken",
+      "title": "Pánubohudooken",
+      "artist": "Tomáš Klus",
+      "folderId": "ceske",
+      "key": "A",
+      "content": "[A]Za devatero horami a devatero řekami, leží kraj líbezný jak z reklamy,\n[E]tam pravdě pšenka nekvete, člověk zde vyvinul se z prasete.\n\n[A]Za co Pane Bože, za co? Tres[E]táš tento prostý lid.\n[A]Za co Pane Bože, za co? Nechals nás se napálit.\n[E]Za co Pane Bože, za co? Zas štyry roky v prdeli.\n[A]Za co Pane Bože, za co? Omluv mě, že jsem tak smělý."
+    },
+    {
+      "id": "udg-kurtizana",
+      "title": "Kurtizána",
+      "artist": "UDG",
+      "folderId": "ceske",
+      "key": "Em",
+      "content": "[Em]Jsi jenom člověk,\n[C]co se narodí\n[G]v těle, kde tělo [D]duši ruší.\n\n[Em]Nemám tě znát,[C]\n[D]nemám mít rád,\n[G]nehledat v kapce [D]vína.\n\n[Em]Jsem jenom člověk, co se naro[C]dí\n[G]v těle kde tělo duši [D]ruší.\nA každá rána ta se zahojí\na každé ráno ti to sluší."
+    },
+    {
+      "id": "vaclav-neckar-pulnocni",
+      "title": "Půlnoční",
+      "artist": "Václav Neckář",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Jedu domů po trati, jedu přes [G]kopce,[A]\n[D]za okny padá, padá sníh, budou [G]Vánoce,[A]\n\n[D]Beránku náš na ne[A]besích,[Bm][G]\n[D]stůj při nás, až při[A]jde tma,[C]\n[D]aleluja, ale[Bm]lu - ja.[G]\n\n[D]Aleluja, ale[Bm]lu - ja,[G][A]\n[D]aleluja, ale[Bm]lu - ja,[G][A]"
+    },
+    {
+      "id": "vaclav-neckar-stin-katedral",
+      "title": "Stín Katedrál",
+      "artist": "Václav Neckář",
+      "folderId": "ceske",
+      "key": "A",
+      "content": "[A]Stín katedrál, půl nebe s [D]bůhví čím jéjé[A][G][D][E]\n[A]svůj ideál, sen, co si [D]dávám zdát.[A][B][E]\n\n[C]Přej si co chceš, zlatý důl neb[D]o věž[G][D]\n[C]sladkou sůl, smutný ráj, suc[D]hý déšť[G]\n[C]ber, tady máš mořskou pláň ne[D]bo pláž[G][D]\n[C]hudbu sfér, jenom ber se mnou [D]též jéjé[E]"
+    },
+    {
+      "id": "waldemar-matuska-slavici-z-madridu",
+      "title": "Slavíci z Madridu",
+      "artist": "Waldemar Matuška",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Nebe je modrý a zlatý, bílá slune[E]ční záře,[Am]\n[E]horko a sváteční šaty, vřava a zpocený [Am]tváře,\n\n[Dm]Žízeň je veliká, život mi utíká,[Am]\n[E]nechte mě příjemně snít,[Am]\n[Dm]ve stínu pod fíky poslouchat slavíky,[Am]\n[E]zpívat si s nima a pít.[Am]"
+    },
+    {
+      "id": "waldemar-matuska-tisic-mil",
+      "title": "Tisíc mil",
+      "artist": "Waldemar Matuška",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]V nohách mám už tisíc [Em]mil,\n[Am]stopy déšť a vítr [C]smyl\n[Am]a můj kůň i já jsme [D7]cestou zna[G]veni.\n\n[G]Těch tisíc mil, těch tisíc [Em]mil\n[Am]má jeden směr a jeden [C]cíl,\n[Am]bílej dům, to malý bílý [D7]stave[G]ní."
+    },
+    {
+      "id": "wanastowi-vjecy-otevrena-zlomenina-srdecniho-svalu",
+      "title": "Otevřená zlomenina srdečního svalu",
+      "artist": "Wanastowi Vjecy",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Jsem jako vítr kterej zfoukne pírko ze tvejch dlaní,\n[D]špínu jedný noci, jako hygiena ranní\n[Am]velká voda slzí, který spláchnou noční hříchy,\n[C]tamburíny zvoní k operaci [Eb]míchy\n\n[G]Ohořelou károu chtěl bych dojet ke hvězdám,[D]\n[Am]který svítily z tvejch očí dřív než červotoči[C]\n[F]se do tvýho srdce daj,[D] hm hm"
+    },
+    {
+      "id": "wohnout-svaz-ceskych-bohemu",
+      "title": "Svaz českých bohémů",
+      "artist": "Wohnout",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G][Dm][Am]\nMám tisíc otázek na žádnou vzpomínku,\nskládám si obrázek kámen po kamínku.\n\n[G]Vracím se domů [Dm]nad ránem, [Am]kvalitním vínem omámen,\n[F]z přímek se stávaj [C]zatáčky, točí se [G]svět, jsem na sračky.\nVedle mě zvrací princezna, nastavím dlaň a požehnám,\npro všechny jasný poselství - tomu se říká přátelství."
+    },
+    {
+      "id": "xindl-x-andel",
+      "title": "Anděl",
+      "artist": "Xindl X",
+      "folderId": "ceske",
+      "key": "Dm",
+      "content": "[Dm]Jsem anděl, co tě dostal na povel\n[B]Ale mám-li tě vzít do nebe\n[C]Chci z toho něco pro sebe\n[Dm]Mám rád řeč těl a v kapse lubrikační gel\n[B]Tak mi namaž perutě\n[C]A já do nebe vemu tě\n\n[Dm]Svět je pochybný místo a je snadný [B]se v něm ztratit,\n[C]obzvlášť pro ty, co nevěděj, komu [Dm]za ochranu platit."
+    },
+    {
+      "id": "xindl-x-chemie",
+      "title": "Chemie",
+      "artist": "Xindl X",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am][G][F][G]\n\nJe mi fajn, mám se skvěle, jsem zdravý duch ve sfetovanym telě,\nranní ptáče, co zobe už od rána: ibalgin, aspirin, zirteg a guarana.\n\n[F]Vykašli se [G]na to zlato,\n[Am]Ty nemůžeš za to,\n[F]že mi je, tak jak mi [Em]je,\nnejsi to Ty, je to jen [Am]chemie."
+    },
+    {
+      "id": "xindl-x-v-blbym-veku",
+      "title": "V blbým věku",
+      "artist": "Xindl X",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Ujel mi vlak i [G]poslední metro,\n[Am]ještě jsem nebyl [Am/G]in a už jsem [D9/F#]retro,\n[F]než jsem se z pulce vyloup [G]v samce,\n[C]co má všechno [Am]pod palcem,\n[F]v den svý šance [Dm7]na poslední jamce [G]zaspal jsem.\n\n[Am]Včera mi bylo [F]málo, dneska je mi [C]moc,\n[G]jak se to stalo, nevím,\n[Am]každopádně jsem [F]zas v blbým [G]věku"
+    },
+    {
+      "id": "zdenek-sverak-jaroslav-uhlir-delani",
+      "title": "Dělání",
+      "artist": "Zdeněk Svěrák, Jaroslav Uhlíř",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Když máš srdce zjihlé, [G]když máš potíže,\n[D]tak dej cihlu k cihle, [G]těsto do díže,\n[Em]upeč třeba chleba, [A7]postav třeba [D]zeď, [Bm]\n[G]žal se krásně vstřebá,\n[D]začni s tím hned [D7]teď, [G]začni s tím [A7]hned [D]teď.\n\n[G]Dělání, dělání, [A7]všechny smutky [D]zahání, [G]\n[Em]dělání, dělání je [A7]lék. [D][D7]\n[G]Dělání, dělání, [A7]to nám úsměv [D]zachrání, [G]\n[Em]dělání, dělání je [A7]lék. [D]"
+    },
+    {
+      "id": "zdenek-sverak-jaroslav-uhlir-neni-nutno",
+      "title": "Není nutno",
+      "artist": "Zdeněk Svěrák, Jaroslav Uhlíř",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Není nutno, není nutno, aby bylo přímo [Dm]veselo,\n[G7]hlavně nesmí býti smutno, natož aby [C]se brečelo. [G]\n\n[C]Chceš-li, trap se, že ti v kapse zlaté mince [Dm]nechřestí,\n[G7]nemít žádné kamarády, tomu já říkám [C]neštěstí.\n\n[Am]Nemít prachy - [C]nevadí, nemít srdce - [Am]vadí, [C]\n[Am]zažít krachy - [C]nevadí, zažít nudu - [Am]jó, to [F]vadí. [G]"
+    },
+    {
+      "id": "zdenek-sverak-jaroslav-uhlir-severni-vitr",
+      "title": "Severní vítr",
+      "artist": "Zdeněk Svěrák, Jaroslav Uhlíř",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Jdu s děravou patou, [Am]mám horečku zlatou,\n[F]jsem chudý, jsem sláb, [C]nemocen.\n[Am]Hlava mě pálí a v modravé dáli [F]se leskne\n[G7]a třpytí [C]můj sen.\n\n[C]Severní vítr je [C7]krutý, [F]\n[C]počítej, lásko má, [G7]s tím,\n[C]k nohám Ti dám zlaté [C7]pruty [F]\n[C]nebo se vůbec [G7]nevrátím. [C]"
+    },
+    {
+      "id": "zdenek-sverak-jaroslav-uhlir-skritkove-zednici",
+      "title": "Skřítkové, zedníci",
+      "artist": "Zdeněk Svěrák, Jaroslav Uhlíř",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Skřítkové, zedníci [F]zanechte [C]spánku [G]\n[C]Vezměte kladívko, [C7]lžíci a [F]fanku [G7]\n\n[C]Šupi dupi dup, raz dva tři, hej rup, [Am]\n[F]pidimužík [G]pracuje.\n[C]Šupi dupi dup, raz dva tři, hej rup, [Am]\n[F]pidimužík [G]kutá. [C]"
+    },
+    {
+      "id": "zdenek-sverak-jaroslav-uhlir-statistika",
+      "title": "Statistika",
+      "artist": "Zdeněk Svěrák, Jaroslav Uhlíř",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[C]Je statisticky dokázáno,\n[Am]že slunce vyjde každé ráno,\n\n[F]Statistika nuda [G]je,\n[Em]má však cenné [Am]údaje,\n[F]neklesejte na [G]mysli,\n[F]ona vám to [C]vyčíslí."
+    },
+    {
+      "id": "lidove-pisne-katusa",
+      "title": "Katuša",
+      "artist": "lidové písně",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Razcvětaly jabloni i gruši, po[E7]plyli tumany nad re[Am]koj,\n[Am]vychadila [G]na běreg Ka[Dm]ťuša, na [Am]vysokij, [Dm]na běreg [Am]kru[E]toj.[Am]\n\n[Am]Vychadila, pěsňu zavadila [E7]pro stěpnovo - sizovo or[Am]la.\n[Am]Pro tavo, [G]katorovo l[Dm]jubila, [Am]pro tavo, [Dm]či pisma [Am]bě[E]regla.[Am]"
+    },
+    {
+      "id": "lidove-pisne-to-ta-helpa",
+      "title": "To ta Heľpa",
+      "artist": "lidové písně",
+      "folderId": "ceske",
+      "key": "Dm",
+      "content": "[Dm]To ta Hel[G]pa, to ta Hel[Dm]pa, to je [G]pekné [Dm]mes[A7]to[Dm]\n[Dm]a v tej Hel[G]pe, a v tej Hel[Dm]pe švarných [G]chlap[Dm]cov je [A7]sto.[Dm]\n[B]Koho je sto, [C7]toho je sto, [F]nie po mo[C]jej vó[F]li,[A7]\n[Dm]len za jed[G]nym, len za jed[Dm]nym srdie[G]čko ma [Dm]bo[A7]li.[Dm]"
+    },
+    {
+      "id": "taborove-pisne-okor",
+      "title": "Okoř",
+      "artist": "táborové písně",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Na Okoř je cesta jako žádná ze sta,\n[A7]vroubená je stromama [D]\n\n[D]Na hradě Okoři [A7]světla už nehoří,\n[D]bílá paní šla [A7]už dávno [D]spát,\n[A7]ta měla ve zvyku podle svého budíku\n[D]o půlnoci chodit [A7]strašívat,[D]\n[G]od těch dob, co jsou tam trampové,[D]\n[E]nesmí z hradu pryč,[A7]\n[D]a tak dole v podhradí se šerifem dovádí,[A7]\n[D]on jí sebral od komnaty [A7]klíč.[D]"
+    },
+    {
+      "id": "taborove-pisne-cervena-reka",
+      "title": "Červená řeka",
+      "artist": "táborové písně",
+      "folderId": "ceske",
+      "key": "D",
+      "content": "[D]Pod tou skálou, kde [D7]proud řeky syčí [G]\n[D]a kde ční čer[B7]vený ka[E7]mení,[A7]\n[D]žije ten, co mi [D7]jen srdce ničí,[G]\n[D]koho já ráda [A7]mám k zbláznění.[D]\n\nVím, že lásku jak trám lehce slíbí,\nja ho znám, srdce má děravý,\nale já ho chci mít, mně se líbí,\nbez něj žít už mě dál nebaví."
+    },
+    {
+      "id": "taborove-pisne-rekni-kde-ty-kytky-jsou",
+      "title": "Řekni, kde ty kytky jsou",
+      "artist": "táborové písně",
+      "folderId": "ceske",
+      "key": "G",
+      "content": "[G]Řekni, kde ty kytky jsou, [Em]co se s nima mohlo [C]stát,[D]\n[G]řekni, kde ty kytky jsou, [Em]kde mo[Am]hou být,[D7]\n[G]dívky je tu během dne [Em]otrhaly do [C]jedné,[D7]\n[C]kdo to kdy po[G]chopí, [C]kdo to kdy po[D7]chopí?[G]"
+    },
+    {
+      "id": "cechomor-promeny",
+      "title": "Proměny",
+      "artist": "Čechomor",
+      "folderId": "ceske",
+      "key": "Am",
+      "content": "[Am]Darmo sa ty trápíš můj milý sy[G]nečku[C]\n[E]nenosím ja tebe nenosím v srdé[Am]čku\n[G]A já tvoja ne bu [C]du ani [G]jednu [C]ho[Dm]di[E]nu[Am]\n\n[Am]A já chovám doma takú seke[G]rečku[C]\n[E]ona mi podetne dúbek i jed[Am]ličku\n[G]A ty musíš bý[C]ti má le[G]bo mi [C]tě Pán [Dm]Bůh [E]dá[Am]"
+    },
+    {
+      "id": "skwor-sila-starejch-vin",
+      "title": "Síla starejch vín",
+      "artist": "Škwor",
+      "folderId": "ceske",
+      "key": "C",
+      "content": "[Am]Podle nepsanejch zákonů hledáme něco,[F][G]\nco nám nejspíš schází\n\n[C]Že věci některý jsou neměnný, [G]jak síla starejch vín[Am][F]\n[Am]A někdy je tma kolem nás[F]\n[Am]To když zrovna nejsme stálí[G]\n[C]Najednou blízký jsou si vzdálený[G]\n[Am]To z vočí kouká nám[F]"
+    },
+    {
+      "id": "a-great-big-world-christina-aguilera-say-something",
+      "title": "Say Something",
+      "artist": "A Great Big World & Christina Aguilera",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]Say something, I'm giving up on [F]you.\n[C]I'll be the one, if you want me to.[Gsus4]\n[Am]Anywhere, I would've followed [F]you.\n[C]Say something, I'm giving up on you.[Gsus4]\n\n[C]And I am feeling so small.[Em]\n[F]It was over my head\n[C]I know nothing at all.[Gsus4]\n\n[Am]Say something, I'm giving up on [F]you.\n[C]And I'm sorry that I couldn't get to you.[Gsus4]"
+    },
+    {
+      "id": "amy-macdonald-this-is-the-life",
+      "title": "This Is The Life",
+      "artist": "Amy Macdonald",
+      "folderId": "anglicke",
+      "key": "C#m",
+      "content": "[C#m]Oh, the wind whistles down\n[A]The cold dark street tonight\n[E]And the people they were dancing to the music vibe\n[C#m]And the boys chase the girls with the curls in their hair\n[A]While the shy tormented youth sit way over there\n[E]And the songs they get louder\n\n[C#m]And you're singing the songs, thinking this is the life\n[A]And you wake up in the morning and your head feels twice the size\n[E]Where you gonna go? Where you gonna go?\n[C#m]Where you gonna sleep tonight"
+    },
+    {
+      "id": "beatles-let-it-be",
+      "title": "Let It Be",
+      "artist": "Beatles",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]When I find myself in times of trouble[G]\n[Am]Mother Mary comes to me[F]\n[C]speaking words of wisdom let it [G]be[F][C]\n\n[Am]Let it be let it [G]be let it [F]be let it [C]be\n[G]whisper words of wisdom let it [F]be.[C]\n\nAnd when the broken hearted people living in the world agree\nthere will be an answer let it be.\n\nLet it be let it be let it be let it be\nwhisper words of wisdom let it be."
+    },
+    {
+      "id": "bob-dylan-knocking-on-heaven-doors",
+      "title": "Knockin' On Heaven's Door",
+      "artist": "Bob Dylan",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]Mama take this badge off of me [D]\n[Am]I can't use it anymore\n[G]It's getting dark, too dark to see [D]\n[C]I feel I'm knockin on heaven's door\n\n[G]Knock, knock, knockin' on heaven's door [D]\n[Am]Knock, knock, knockin' on heaven's door\n[G]Knock, knock, knockin' on heaven's door [D]\n[C]Knock, knock, knockin' on heaven's door"
+    },
+    {
+      "id": "bruno-mars-grenade",
+      "title": "Grenade",
+      "artist": "Bruno Mars",
+      "folderId": "anglicke",
+      "key": "Dm",
+      "content": "[Dm]Easy come, easy go, that's just how you live,\n[Am]Take, take, take it all, but you never give.\n\n[Dm]I'd catch a grenade for ya [Bb] [F]\n[C]throw my hand on a blade for ya [Dm] [Bb] [F]\n[C]I'd jump in front of a train for ya [Dm] [Bb] [F]\n[C]you know I'd do anything for ya [Dm] [Bb] [F]\n[C]Oh I would go through all this pain, [Bb] [C]\n[F]take a bullet straight through my brain! [A]\n[C]Yes I would die for ya baby, [Bb]\n[A]but you won't do the same."
+    },
+    {
+      "id": "bruno-mars-just-the-way-you-are",
+      "title": "Just the Way You Are",
+      "artist": "Bruno Mars",
+      "folderId": "anglicke",
+      "key": "D",
+      "content": "[D]Oh her eyes, her eyes, make the stars look like they're not shining\n[Bm7]Her hair, her hair, falls perfectly without her trying\n[G]She's so beautiful, and I tell her every day [D]\n\n[D]When I see your face, [Bm7]there's not a thing that I would change\n[G]cause you're amazing, just the way you are [D]\n[D]And when you smile, [Bm7]the whole world stops and stares for a while\n[G]cause girl you're amazing, just the way you are"
+    },
+    {
+      "id": "bruno-mars-when-i-was-your-man",
+      "title": "When I Was Your Man",
+      "artist": "Bruno Mars",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[Am]Same bed, but it feels just a little bit bigger now [C] [Dm]\n[G]Our song on the radio, but it don't sound the same [C] [Em/B]\n\n[G]I should've bought you flowers and held your hand [F]\n[G]shoulda gave you all my hours when I had the chance [C]\n[F]take you to every party cause all you wanted to do was dance [G] [Am]\n[D7]now my baby's dancing, but she's dancing with another man [F] [Fm] [C]"
+    },
+    {
+      "id": "chris-armstrong-what-a-wonderful-world",
+      "title": "What a Wonderful World",
+      "artist": "Louis Armstrong",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]I see trees of green, red roses too [Em] [F] [Em]\n[Dm]I see them bloom, for me and you [C] [E7] [Am]\n[Ab]And I think to myself, what a wonderful [Dm7]world [G] [C]\n\n[G]The colours of the rainbow, so pretty in the sky [C]\n[G]Are also on the faces of people going by [C]\n[Am]I see friends shaking hands saying how do you do [Em]\n[F]they're really saying I love you [C] [G]\n\n[C]I hear babies crying, I watch them grow [Em] [F] [Em]\n[Dm]They'll learn much more than I'll ever know [C] [E7] [Am]\n[Ab]And I think to myself, what a wonderful world [Dm7] [G] [C]"
+    },
+    {
+      "id": "chris-isaak-wicked-game",
+      "title": "Wicked Game",
+      "artist": "Chris Isaak",
+      "folderId": "anglicke",
+      "key": "Bm",
+      "content": "[Bm]The world was on fire and no one could save me but you. [A] [E]\n[Bm]It's strange what desire will make foolish people do. [A] [E]\n[Bm]I never dreamed that I'd meet somebody like you. [A] [E]\n[Bm]I never dreamed that I'd lose somebody like you. [A] [E]\n\n[Bm]No, I don't want to fall in love. [A] [E]\n(This world is only gonna break your heart)\n[Bm]No, I don't want to fall in love. [A] [E]\nWith you."
+    },
+    {
+      "id": "coldplay-the-scientist",
+      "title": "The Scientist",
+      "artist": "Coldplay",
+      "folderId": "anglicke",
+      "key": "Dm",
+      "content": "[Am7]Come up to meet you, tell you I'm sorry [F]\n[C]You don't know how lovely you are [C/B] [Am7]\n[F]I had to find you, tell you I need you [C]\n[C/B]Tell you I set you apart [Am7]\n\n[F]Nobody said it was easy [C]\n[C/B]It's such a shame for us to part\n[F]Nobody said it was easy [C]\n[C/B]No one ever said it would be this hard [C6] [G]\nOh, take me back to the start [C]"
+    },
+    {
+      "id": "coldplay-viva-la-vida",
+      "title": "Viva la Vida",
+      "artist": "Coldplay",
+      "folderId": "anglicke",
+      "key": "Ab",
+      "content": "[C]I used to rule the world [D]\n[G]Seas would rise when I gave the word [Em]\n[C]Now in the morning I sleep alone [D]\n[G]Sweep the streets I used to own [Em]\n\n[C]I hear Jerusalem bells are ringing [D]\n[G]Roman Cavalry choirs are singing [Em]\n[C]Be my mirror, my sword, and shield [D]\n[G]My missionaries in a foreign field [Em]\n[C]For some reason I can't explain [D]\n[Bm]once you'd gone there was never an honest word [Em]"
+    },
+    {
+      "id": "coldplay-yellow",
+      "title": "Yellow",
+      "artist": "Coldplay",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]Look at the stars, look how they shine for you [D]\n[Cmaj7]And everything you do, yeah they were all yellow\n\n[G]I came along, I wrote a song for you [D]\n[Cmaj7]And all the things you do, and it was called Yellow.\n\n[Cmaj7]Your skin, [Em7]oh yeah your skin and bones [D]\n[Cmaj7]Turn into [Em7]something beautiful [D]\n[Cmaj7]You know, [Em7]you know I love you so [D] [Cmaj7]\nYou know I love you so"
+    },
+    {
+      "id": "daniel-powter-bad-day",
+      "title": "Bad Day",
+      "artist": "Daniel Powter",
+      "folderId": "anglicke",
+      "key": "D",
+      "content": "[D/A]Where is the moment when we need it the most [Gadd9] [A] [Em]\n[D/A]You kick up the leaves and the magic is lost [Gadd9] [A] [Em]\n[Bm]They tell me your blue sky's faded to grey [A] [G]\n[D]The tell me your passion's gone away [Em]\n[A]And I don't need no carrying on\n\n[D]Cause you had a bad day, [G]you're taking one down [Em]\n[A]you sing a sad song just to turn it around\n[D]You say you don't know, [G]you tell me don't lie [Em]\n[A]you work at a smile and you go for a ride"
+    },
+    {
+      "id": "eagles-hotel-california",
+      "title": "Hotel California",
+      "artist": "Eagles",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]On a dark desert highway, cool wind in my hair [E7]\n[G]Warm smell of colitas rising up through the air [D]\n[F]Up ahead in the distance, I saw a shimmering light [C]\n[Dm]My head grew heavy and my sight grew dim [E7]\nI had to stop for the night\n\n[F]Welcome to the Hotel California. [C]\n[E7]Such a lovely place, such a lovely face [Am]\n[F]Plenty of room at the Hotel California [C]\n[Dm]Any time of year, you can find it here [E7]"
+    },
+    {
+      "id": "ed-sheeran-i-see-fire",
+      "title": "I See Fire",
+      "artist": "Ed Sheeran",
+      "folderId": "anglicke",
+      "key": "Em",
+      "content": "[Em]If this is to end in fire [G]\n[D]then we should all burn together [C]\n[Em]watch the flames climb high into the night [G] [D] [Am7]\n[Em]calling out father oh stand by and we will [G] [D] [C]\n[Am7]watch the flames burn auburn on [G/B]\n[C]the mountain side\n\n[Em]Now I see fire [C]\n[D]inside the mountain [Em]\n[Em]I see fire [C]\n[D]burning the trees [Em]\n[Em]And I see fire [C]\n[D]hollowing souls [Em]\n[Em]I see fire [C]\n[D]blood in the breeze [Am7]\n[D]And I hope that you remember me"
+    },
+    {
+      "id": "ed-sheeran-lego-house",
+      "title": "Lego House",
+      "artist": "Ed Sheeran",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]I'm gonna pick up the pieces, [D]\n[Em]and build a lego house [D]\n[G]when things go wrong we can knock it down [D] [Em] [D]\n\n[G]I'm out of touch, I'm out of love [D]\n[Em]I'll pick you up when you're getting down\n[G/B]And out of all these things I've done [C] [D]\nI think I love you better now\n[G]I'm out of sight, I'm out of mind [D]\n[Em]I'll do it all for you in time\n[G/B]And out of all these things I've done [C] [D]\nI think I love you better now"
+    },
+    {
+      "id": "ed-sheeran-perfect",
+      "title": "Perfect",
+      "artist": "Ed Sheeran",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]I found a love for me [Em]\n[C]Darling just dive right in and follow my lead [D]\n[G]Well I found a girl beautiful and sweet [Em]\n[C]I never knew you were the someone waiting for me [D]\n\n[Em]Baby I'm dancing in the dark, with you between my arms [C]\n[G]Barefoot on the grass, listening to our favourite song [D] [Em]\n[C]When you said you looked a mess, I whispered underneath my breath [G]\n[D]But you heard it, darling you look perfect tonight [G]"
+    },
+    {
+      "id": "ed-sheeran-shivers",
+      "title": "Shivers",
+      "artist": "Ed Sheeran",
+      "folderId": "anglicke",
+      "key": "Bm",
+      "content": "[Bm]I took an arrow to the heart [G]\n[D]I never kissed a mouth that taste like yours [A]\n\n[Bm]Ooh, I love when you do it like that [G]\n[D]And when you're close up, you give me the shivers [A]\n[Bm]Oh baby you wanna dance 'til the sunlight cracks [G]\n[D]And when they say the party's over then we'll bring it right back [A]"
+    },
+    {
+      "id": "ed-sheeran-the-a-team",
+      "title": "The A Team",
+      "artist": "Ed Sheeran",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]White lips, pale face [D/F#]\n[Em]Breathing in snowflakes [C]\n[G]Burnt lungs, sour taste [G]\n\n[Am]And they say [C]\n[G]She's in the Class A Team [D/F#]\n[Am]Stuck in her daydream [C]\n[G]Crumbling like pastries\n[D/F#]The worst things in life come free to us\n\n[Em]Cos we're just under the upperhand [C]\n[G]And go mad for a couple grams [Em] [C]\n[G]And she don't want to go outside tonight\n[Em]It's too cold outside [C]\n[G]for angels to fly"
+    },
+    {
+      "id": "fool-s-garden-lemon-tree",
+      "title": "Lemon Tree",
+      "artist": "Fool's Garden",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]I'm sitting here in a boring room, [Em]\n[Am]It's just another rainy Sunday afternoon. [Em]\n[Am]I'm wasting my time, I got nothing to do. [Em]\n[Dm]But nothing ever happens [Em] [Am][Em]\n\n[C]I wonder how, I wonder why [G]\n[Am]Yesterday you told me 'bout the blue blue sky [Em]\n[F]And all that I can see is just a yellow lemon tree. [G] [C] [G7]\n[C]I'm turning my head up and down [G]\n[Am]I'm turning turning turning around [Em]\n[F]And all that I can see is just another lemon tree. [F#dim7] [G] [G7]"
+    },
+    {
+      "id": "glen-hansard-marketa-irglova-falling-slowly",
+      "title": "Falling Slowly",
+      "artist": "Glen Hansard & Markéta Irglová",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]I don't know you [F]\n[C]But I want you [F]\n[C]All the more for that [F]\n[C]Words fall through me [F]\n[C]And always fool me [F]\n[Am]And games that never amount [G] [F]\n[G]to more than they're meant [Am] [G]\n[F]will play themselves out\n\n[C]Take this sinking boat and point it home [F] [Am]\n[F]We've still got time [C]\n[F]Raise your hopeful voice you have a choice [Am]\n[F]You've made it now"
+    },
+    {
+      "id": "gnarls-barkley-crazy",
+      "title": "Crazy",
+      "artist": "Gnarls Barkley",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]I remember when, I remember when I lost my mind [Cmaj7]\n[F]There was something so pleasant about that place.\n[Esus4]Even your emotions had an echo [E]\n\n[Am]Does that make me crazy? [C]\n[F]Does that make me crazy? [Esus4]\nPossibly. [E]\n\n[Am]Well I think you're crazy! [Cmaj7]\n[F]I think you're crazy, [Esus4]\nJust like me. [E]"
+    },
+    {
+      "id": "goo-goo-dolls-iris",
+      "title": "Iris",
+      "artist": "Goo Goo Dolls",
+      "folderId": "anglicke",
+      "key": "Bm",
+      "content": "[D]And I'd give up forever to touch you [Em] [G]\n[Bm]'Cause I know that you feel me somehow [A] [G]\n[D]You're the closest to heaven that I'll ever be [Em] [G]\n[Bm]And I don't want to go home right now [A] [G]\n\n[Bm]And I don't want the world to see me [A] [G]\n[Bm]'Cause I don't think that they'd understand [A] [G]\n[Bm]When everything's made to be broken [A] [G]\n[Bm]I just want you to know who I am [A] [G]"
+    },
+    {
+      "id": "harry-styles-adore-you",
+      "title": "Adore You",
+      "artist": "Harry Styles",
+      "folderId": "anglicke",
+      "key": "Am7",
+      "content": "[Am7]Walk in your rainbow paradise [C]\n[Fmaj7]Strawberry lipstick state of mind [G]\n[Am7]I get so lost inside your eyes [C] [Fmaj7]\nWould you believe it?\n\n[Am7]Honey [C]\n[Fmaj7]I'd walk through fire for you [G]\nJust let me adore you\n[Am7]Oh honey [C]\n[Fmaj7]I'd walk through fire for you [G]\nJust let me adore you\n[Am7]Like it's the only thing I'll ever do [C] [Fmaj7] [G]"
+    },
+    {
+      "id": "harry-styles-sign-of-the-times",
+      "title": "Sign of the Times",
+      "artist": "Harry Styles",
+      "folderId": "anglicke",
+      "key": "F",
+      "content": "[F]Just stop your crying, it's a sign of the times [Dm]\n[C]Welcome to the final show\nHope you're wearing your best clothes [C7]\n\n[F]Just stop your crying, it's a sign of the times [Dm]\n[C]We gotta get away from here [C7]\n[F]Just stop your crying, it'll be alright [Dm]\n[C]They told me that the end is near\nWe gotta get away from here [C7]\n\n[F]We don't talk enough, we should open up [Dm]\n[C]Before it's all too much [Bb]"
+    },
+    {
+      "id": "high-school-musical-breaking-free",
+      "title": "Breaking Free",
+      "artist": "High School Musical",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]We're soaring [Dadd2]\n[F]There's not a star in heaven that we can't reach [C] [G] [Am]\n[D]if we're trying [F] [C/F]\nso we're breaking free\n\n[Am]You know the world can see us [D]\n[F]in a way that's different than who we are [C] [G/B] [Am]\n[F]But your faith [D7/F#]\n[Fadd2][C/F]it gives me strength to believe we're breaking free"
+    },
+    {
+      "id": "imagine-dragons-demons",
+      "title": "Demons",
+      "artist": "Imagine Dragons",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]When the days are cold, and the cards all fold [G]\n[Am]And the saints we see, are all made of gold [F]\n\n[C]When you feel my heat, look into my eyes [G] [Am]\n[F]It's where my demons hide, it's where my demons hide [C]\n[G]Don't get too close, it's dark inside [Am]\n[F]It's where my demons hide, it's where my demons hide [C]"
+    },
+    {
+      "id": "imagine-dragons-radioactive",
+      "title": "Radioactive",
+      "artist": "Imagine Dragons",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]I'm waking up to ash and dust [C] [G]\n[D]I wipe my brow and I sweat my rust [Am]\n\n[Am]I'm waking up, I feel it in my bones [C]\n[G]Enough to make my systems blow [D]\n[Am]Welcome to the new age, to the new age [C]\n[G]Welcome to the new age, to the new age [D]\n[Am][C][G][D]Whoa, whoa, I'm radioactive, radioactive\n[Am][C][G][D]Whoa, whoa, I'm radioactive, radioactive"
+    },
+    {
+      "id": "james-bay-hold-back-the-river",
+      "title": "Hold Back the River",
+      "artist": "James Bay",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]Tried to keep you close to me, [C] [F] [C]\n[F]but life got in between [C] [G]\n\n[F]Hold back the river, let me look in your eyes\n[C]Hold back the river, so I [F]\nCan stop for a minute and see where you hide [C]\nHold back the river, hold back\n\n[C]Lonely water, lonely water, won't you let us wander [F]\n[Dm]Let us hold each other"
+    },
+    {
+      "id": "john-denver-country-roads",
+      "title": "Country Roads",
+      "artist": "John Denver",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]Almost heaven, West Virginia, [Am]\n[G]Blue Ridge Mountains, [F]Shenandoah river. [C]\n\n[C]Country roads, take me home, [G]\n[Am]to the place I belong: [F]\n[C]West Virginia, mountain mamma, [G]\n[F]take me home, country roads. [C]\n\n[Am]I hear her voice, in the morning house she calls me, [G] [C]\n[F]the radio reminds me off my home far away. [C] [G]\n[Am]And driving down the road, [B]\n[F]I get a feeling that I should have been home [C]yesterday. [G]"
+    },
+    {
+      "id": "john-legend-all-of-me",
+      "title": "All of Me",
+      "artist": "John Legend",
+      "folderId": "anglicke",
+      "key": "Em",
+      "content": "[Em]What would I do without your smart mouth [C] [G]\nDrawing me in, and you kicking me out [D] [Em]\n[C]Got my head spinning, no kidding, I can't pin you down [G] [D]\n\n[G]Cause all of me [Em]loves all of you\n[Am]Love your curves and all your edges\n[C/D][D]All your perfect imperfections\n[G]Give your all to me [Em]\nI'll give my all to you\n[Am]You're my end and my beginning\n[C/D][D]Even when I lose I'm winning\n[Em][C][G][D]Cause I give you all, all of me\n[Em][C][G][D]And you give me all, all of you"
+    },
+    {
+      "id": "lady-gaga-shallow",
+      "title": "Shallow",
+      "artist": "Lady Gaga",
+      "folderId": "anglicke",
+      "key": "Em",
+      "content": "[Em]Tell me somethin' girl [D] [G]\n[C]Are you happy in this modern world? [G] [D]\n\n[Em][D][G]I'm fallin'\n[C]In all the good times [G]\n[D]I find myself longin' for change\n\n[Am]I'm off the deep end [D]\n[G]Watch as I dive in [D] [Em]\n[Am]Crash through the surface [D]\n[G]Where they can't hurt us [D] [Em]\nWe're far from the shallow now\n\n[Am]In the sha-ha-sha-ha-low [D]\n[G]We're far from the shallow now [D] [Em]"
+    },
+    {
+      "id": "lewis-capaldi-before-you-go",
+      "title": "Before You Go",
+      "artist": "Lewis Capaldi",
+      "folderId": "anglicke",
+      "key": "D",
+      "content": "[D]I fell by the wayside, like everyone else [Bm]\n[G]Our every moment, I start to replace [Asus4] [A]\n\n[D]Before you go [A]\n[Bm]Was there something I coulda said to make your heart beat better?\n[G]If only I'd have known you had a storm to weather [A]\n[D]Before you go [A]\n[Bm]Was there something I coulda said to make it all stop hurting?\n[G]It kills me how your mind can make you feel so worthless [A]\n[D]Before you go"
+    },
+    {
+      "id": "lewis-capaldi-someone-you-loved",
+      "title": "Someone You Loved",
+      "artist": "Lewis Capaldi",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]I'm going under and this time I fear there's no one to save me [G] [Am] [F]\n\n[C]Now the day bleeds into nightfall [G]\n[Am]And you're not here to get me through it all [F]\n[C]I let my guard down, and then you pulled the rug [G]\n[Am]I was getting kinda used to being someone you loved [F]\n\n[Dm]And I tend to close my eyes when it hurts sometimes [Am] [G]\n[Dm7]I fall into your arms [Am7] [G]"
+    },
+    {
+      "id": "lukas-graham-7-years",
+      "title": "7 Years",
+      "artist": "Lukas Graham",
+      "folderId": "anglicke",
+      "key": "Em",
+      "content": "[Em]Once I was seven years old my momma told me [G]\n[C]go make yourself some friends or you'll be lonely [D]\n\n[Em]It was a big big world but we thought we were bigger [D] [G]\n[C]pushing each other to the limits, we were learning quicker [D] [Em]\n\n[C]Soon I'll be sixty years old, my daddy got sixty-one [D] [Em]\n[G/B]remember life and then your life becomes a better one [C] [D] [Em]"
+    },
+    {
+      "id": "oasis-wonderwall",
+      "title": "Wonderwall",
+      "artist": "Oasis",
+      "folderId": "anglicke",
+      "key": "Em",
+      "content": "[Em]Today is gonna be the day [G]\n[D]that they're gonna throw it back to you [A7sus4]\n[Em]By now you should've somehow [G]\n[D]realised what you gotta do [A7sus4]\n\n[C]And all the roads we have to walk are winding [D] [Em]\n[C]And all the lights that lead us there are blinding [D] [Em]\n\n[C]Because maybe [Em] [G]\n[Em]you're gonna be the one that saves me? [C] [Em] [G]\nAnd after all [Em]\nyou're my wonderwall [C] [Em] [G] [Em]"
+    },
+    {
+      "id": "one-direction-story-of-my-life",
+      "title": "Story Of My Life",
+      "artist": "One Direction",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]Written in these walls are the stories that I can't explain [C]\n[Am]I leave my heart open but it stays right here empty for days [C]\n\n[F]And I'll be gone gone tonight [G] [Am]\n[F]The ground beneath my feet is open wide [G] [Am]\n\n[C]The story of my life, I take her home [F]\n[C]I drive all night to keep her warm [F]\n[Am]and time is frozen [F] [C]"
+    },
+    {
+      "id": "one-direction-what-makes-you-beautiful",
+      "title": "What Makes You Beautiful",
+      "artist": "One Direction",
+      "folderId": "anglicke",
+      "key": "E",
+      "content": "[E]You're insecure, don't know what for [A]\n[B]You're turning heads when you walk through the door [E] [A] [B]\n\n[E]Baby you light up my world like nobody else [A]\n[B]the way that you flip your hair gets me overwhelmed [E] [A]\n[B]But when you smile at the ground it ain't hard to tell [E] [A]\n[B]you don't know you're beautiful!\nThat's what makes you beautiful!"
+    },
+    {
+      "id": "passenger-let-her-go",
+      "title": "Let Her Go",
+      "artist": "Passenger",
+      "folderId": "anglicke",
+      "key": "C",
+      "content": "[C]Well you only need the light when it's burning low [G]\n[D]Only miss the sun when it starts to snow [Am]\n[C]Only know you love her when you let her go [G] [D]\n\n[Em]Staring at the bottom of your glass [C]\n[D]hoping one day you will make a dream last [Bm] [Em]\n[C]Just like a moth drawn to a flame [D]\n\n[C]Only know you love her when you've let her go"
+    },
+    {
+      "id": "robbie-williams-angels",
+      "title": "Angels",
+      "artist": "Robbie Williams",
+      "folderId": "anglicke",
+      "key": "E",
+      "content": "[E]I sit and wait [A]\ndoes an angel contemplate my fate [C#m] [B]\n\n[B]and through it all she offers me protection [C#m]\na lot of love and affection [A]\nwhether I'm right or wrong [E]\n[B]and down the waterfall [C#m]\nwherever it may take me [A]\nI know that life wont break me [E/G#] [F#m] [D]\nwhen I come to call she wont forsake me [A/C#]\nI'm loving angels instead [E]"
+    },
+    {
+      "id": "robbie-williams-feel",
+      "title": "Feel",
+      "artist": "Robbie Williams",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]Come on hold my hand, [C]\nI wanna contact the living. [Em] [E]\n[Dm]Not sure I understand, [C]\nThis role I've been given. [Em] [E]\n\n[F]I just wanna feel real love, [C]\nfeel the home that I live in. [G]\n[F]'cause I got too much life, [C]\nrunning through my veins, going to waste. [G]"
+    },
+    {
+      "id": "shawn-mendes-stitches",
+      "title": "Stitches",
+      "artist": "Shawn Mendes",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]I thought that I've been hurt before [G] [C] [F]\n[Am]but no one's ever left me quite this sore [G] [C] [F]\n\n[Am]You watch me bleed until I can't breathe [G]\n[C]I'm shaking, falling onto my knees\n[F]And now that I'm without your kisses [Am] [G]\n[F]I'll be needing stitches [C]\n[Am]Tripping over myself, aching [G]\n[C]begging you to come help\n[F]And now that I'm without your kisses [Am] [G]\n[F]I'll be needing stitches [C]"
+    },
+    {
+      "id": "snow-patrol-chasing-cars",
+      "title": "Chasing Cars",
+      "artist": "Snow Patrol",
+      "folderId": "anglicke",
+      "key": "A",
+      "content": "[A]We'll do it all, everything, on our own. [E/G#] [D] [A]\n[A]We don't need anything, or anyone. [E/G#] [D] [A]\n\n[A]If I lay here, if I just lay here [E/G#]\n[Dmaj7]Would you lie with me, and just forget the world. [A]\n\n[A]Forget what we're told, before we get too old [E/G#]\n[Dmaj7]Show me a garden that's bursting into life. [A]"
+    },
+    {
+      "id": "the-animals-house-of-the-rising-sun",
+      "title": "House of the Rising Sun",
+      "artist": "The Animals",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "[Am]There is a house in New Orleans [C] [D] [F]\nThey call the Rising Sun [Am] [E]\nAnd it's been the ruin of many a poor boy [Am] [C] [E]\nAnd God, I know, I'm one\n\n[Am]Mama take this badge off of me [C] [D]\nI can't use it anymore [F] [Am]\n[Am]It's getting dark, too dark to see [E]\n\n[Am]Oh, mother, tell your children [C] [D]\nNot to do what I have done [F] [Am]\nSpend your lives in sin and misery [D]\nIn the House of Rising Sun [E]"
+    },
+    {
+      "id": "the-cranberries-zombie",
+      "title": "Zombie",
+      "artist": "The Cranberries",
+      "folderId": "anglicke",
+      "key": "Em",
+      "content": "[Em]Another head hangs lowly, child is slowly taken [C]\n[G]And the violence caused such silence, who are we mistaken [D/F#]\n\n[Em]In your head, in your head, zombie, zombie [C]\n[G]What's in your head, in your head, zombie, zombie [D/F#]\n\n[Em]Another mother's breaking heart is taking over [C]\n[G]When the violence causes silence, we must be mistaken [D/F#]\nIt's the same old theme since 1916\nIn your head, they're still fighting"
+    },
+    {
+      "id": "the-greatest-showman-a-million-dreams",
+      "title": "A Million Dreams",
+      "artist": "The Greatest Showman",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]I close my eyes and I can see [D/F#]\nA world that's waiting up for me [Em]\nthat I call my own [C]\n\n[D/F#]They can say, they can say it all sounds crazy [Em] [D] [C]\n[D/F#]They can say, they can say I've lost my mind [Em] [D] [C]\n\n[G]'Cause every night I lie in bed [D/F#]\nThe brightest colors fill my head [Am]\nA million dreams are keeping me awake [C]\n[G]I think of what the world could be [D/F#]\nA million dreams is all it's gonna take [Am]\nA million dreams for the world we're gonna make [C]"
+    },
+    {
+      "id": "the-greatest-showman-rewrite-the-stars",
+      "title": "Rewrite The Stars",
+      "artist": "The Greatest Showman",
+      "folderId": "anglicke",
+      "key": "G",
+      "content": "[G]You know I want you\nIt's not a secret I try to hide [G]\n\n[Em]What if we rewrite the stars? [C]\n[G]Say you were made to be mine [D/F#]\n[Em]Nothing could keep us apart [C]\n[G]You'd be the one I was meant to find [D/F#]\n[Em]It's up to you, and it's up to me [C]\n[G]No one can say what we get to be [D/F#]\n[Em]So why don't we rewrite the stars? [C]\n[G]Maybe the world could be ours [D/F#]"
+    },
+    {
+      "id": "vance-joy-riptide",
+      "title": "Riptide",
+      "artist": "Vance Joy",
+      "folderId": "anglicke",
+      "key": "Am",
+      "content": "Capo: 1. poloha\n\n[Am]I was scared of dentists and the dark [G]\nI was scared of pretty girls and starting conversations [C]\nOh, all my friends are turning green [Am]\nYou're the magician's assistant in their dream [G] [C]\n\n[Am]Lady, running down to the riptide, taken away [G]\nto the dark side, I wanna be your left hand man [C]\nI love you when you're singing that song\nAnd I got a lump in my throat,\n'Cause you're gonna sing the words wrong"
     }
   ]
 }
